@@ -1,6 +1,13 @@
 import React, { FC } from 'react';
-import Hello from './app/components/hello';
+import { NavigationProvider, ThemeProvider } from './src/components/providers';
+import { RootStackNavigation } from './src/navigations';
 
-const App: FC = () => <Hello />;
+const App: FC = () => (
+  <ThemeProvider>
+    <NavigationProvider>
+      <RootStackNavigation />
+    </NavigationProvider>
+  </ThemeProvider>
+)
 
 export default App;

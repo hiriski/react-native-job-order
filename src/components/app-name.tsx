@@ -7,14 +7,14 @@ interface Props {
 
 const AppName: FC<Props> = ({ name }: Props) => (
   <View>
-    <Text style={styles.text}>{ name }</Text>
+    <Text style={styles.text}>{name}</Text>
   </View>
 );
 
 const styles = StyleSheet.create({
   text: {
     fontSize: 26,
-    color: '#fbfbfb',
+    color: '#333',
     fontWeight: '700',
   },
 });

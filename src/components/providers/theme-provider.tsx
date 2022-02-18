@@ -1,28 +1,13 @@
-import React, { FC, ReactNode, useState } from 'react';
-import themeContext, { Theme }  from '../../contexts/theme-context';
+import React, { FC, ReactNode } from 'react';
+import ThemeContext from '../../contexts/theme-context';
+import theme from '../../config/theme';
 
 interface Props {
   children: ReactNode;
 }
 
-const initialValues = {
-  palette: {
-    primary: {
-      primary: '#fbfbfb',
-      secondary: 'fbfbfb',
-      text: '#fbfbfb',
-    },
-    secondary: {
-      primary: '#fbfbfb',
-      secondary: '#fbfbfb',
-      text: '#fbfbfb',
-    },
-  },
-};
-
 const ThemeProvider: FC<Props> = ({ children }: Props) => {
-  const [theme, setTheme] = useState<Theme>(initialValues);
-  return <themeContext.Provider value={{ theme, setTheme }}>{children}</themeContext.Provider>;
+  return <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>;
 };
 
 export default ThemeProvider;

@@ -1,25 +1,45 @@
-import { createContext, Dispatch, SetStateAction } from 'react';
+import { createContext } from 'react';
+import theme from '../config/theme';
 
-export interface Theme {
-  palette: {
-    primary: {
-      primary: string;
-      secondary: string;
-      text: string;
-    };
-    secondary: {
-      primary: string;
-      secondary: string;
-      text: string;
-    };
+type PaletteMode = 'light' | 'dark';
+
+export interface Typography {
+  h1: number;
+  h2: number;
+  h3: number;
+  h4: number;
+  h5: number;
+  h6: number;
+  body: number;
+  subtitle: number;
+}
+
+export interface Palette {
+  mode: PaletteMode;
+  primary: {
+    main: string;
+    light: string;
+    dark: string;
+    contrastText: string;
+  };
+  secondary: {
+    main: string;
+    light: string;
+    dark: string;
+    contrastText: string;
   };
 }
 
-export interface ThemeContext {
-  theme: Theme;
-  setTheme: Dispatch<SetStateAction<Theme>>;
+export interface Theme {
+  palette: Palette;
+  typography: Typography;
 }
 
-const themeContext = createContext<ThemeContext>({} as ThemeContext);
+export interface ThemeContext {
+  palette: Palette;
+  typography: Typography;
+}
+
+const themeContext = createContext<ThemeContext>(theme);
 
 export default themeContext;

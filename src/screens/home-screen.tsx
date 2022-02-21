@@ -21,6 +21,9 @@ import { useDispatch } from 'react-redux';
 import Todo from '../components/todo';
 import Button from '../components/ui/button';
 import Text from '../components/ui/text';
+import { MainLayout } from '@components/layouts';
+import ScreenHeader from '@components/screen-header';
+import { revokeTokenRequest } from '@store/auth/actions';
 
 LogBox.ignoreLogs([
   "[react-native-gesture-handler] Seems like you're using an old API with gesture components, check out new Gestures system!",
@@ -45,10 +48,10 @@ const HomeScreen: FC = () => {
     console.log('e', e);
   };
 
-  useEffect(() => {
-    dispatch(fetchTodos());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // useEffect(() => {
+  //   // dispatch(fetchTodos());
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   console.log(
     '⚡⚡ All state',
@@ -57,19 +60,23 @@ const HomeScreen: FC = () => {
 
   return (
     <SafeAreaView style={styles.root}>
-      <FocusAwareStatusBar barStyle="light-content" backgroundColor={backgroundColor} />
-      <View style={styles.container}>
-        <RNText style={styles.smallText}>Hello 👋,</RNText>
-        <Text variant="h4">Job Order App</Text>
+      <FocusAwareStatusBar barStyle="dark-content" backgroundColor={backgroundColor} />
+      <MainLayout>
+        <ScreenHeader>
+          <Text variant="subtitle" color="disabled">
+            Good Morning 👋
+          </Text>
+          <Text variant="h2">Riski</Text>
+        </ScreenHeader>
         <RNText>{name}</RNText>
         <RNText style={styles.textFooter}>Made ❤ with React Native</RNText>
         <Button onPress={onPress} />
         <TextInput value={name} placeholder="Input your name" onChangeText={(val) => dispatch(setName(val))} />
-      </View>
-      <Todo todos={todos} />
+        <Todo todos={todos} />
+      </MainLayout>
     </SafeAreaView>
   );
-};
+};;
 
 const { width } = Dimensions.get('screen');
 const styles = StyleSheet.create({

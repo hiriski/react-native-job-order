@@ -1,4 +1,5 @@
-import { Palette, Theme, Typography } from '../../contexts/theme-context';
+import { Palette, Shape, Theme, Typography } from '@app/interfaces/theme';
+import { grey } from '@utils/theme/colors';
 
 export const palettes: Palette = {
   mode: 'light',
@@ -14,6 +15,11 @@ export const palettes: Palette = {
     light: '#FEF3CB',
     contrastText: '#fbfbfb',
   },
+  text: {
+    primary: grey[800],
+    secondary: grey[600],
+    disabled: grey[500],
+  },
 };
 
 export const typography: Typography = {
@@ -27,9 +33,14 @@ export const typography: Typography = {
   subtitle: 13,
 };
 
+export const shape: Shape = {
+  borderRadius: 3,
+};
+
 const theme: Theme = {
   palette: palettes,
-  typography: typography,
+  typography,
+  shape,
 };
 
 export default theme;

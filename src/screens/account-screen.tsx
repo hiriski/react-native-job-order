@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
-import { View, StyleSheet, Text, SafeAreaView, StatusBar, Button} from 'react-native';
+import { View, StyleSheet, Text, SafeAreaView, Button } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
-import { NAVIGATION } from '../constants';
 import FocusAwareStatusBar from '../components/focus-aware-status-bar';
+import { AUTH_STACK, ROOT_STACK } from '@config/navigators';
 
 const backgroundColor = '#feefc3';
 
@@ -14,12 +14,15 @@ const AccountScreen: FC = () => {
       <View>
         <Text style={styles.bigText}>Account Screen</Text>
         <View style={styles.buttonContainer}>
-          <Button title={'Go to home'} onPress={() => navigation.navigate(NAVIGATION.HOME, { params: 'foo' })} />
+          <Button
+            title={'Go to home'}
+            onPress={() => navigation.navigate(ROOT_STACK.AUTH as never, { screen: AUTH_STACK.LOGIN } as never)}
+          />
         </View>
       </View>
     </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   root: {
@@ -34,7 +37,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     marginTop: 22,
-  }
+  },
 });
 
 export default AccountScreen;

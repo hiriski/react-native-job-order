@@ -1,5 +1,5 @@
 import React, { FC, memo } from 'react';
-import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, ListRenderItem } from 'react-native';
+import { View, FlatList, StyleSheet, Text, ListRenderItem } from 'react-native';
 import { Todo } from '../../interfaces/todo';
 
 const Item: FC<{ item: Todo }> = ({ item }: { item: Todo }) => (
@@ -15,34 +15,30 @@ interface Props {
 const TodoComponent: FC<Props> = ({ todos }: Props) => {
   const renderItem: ListRenderItem<Todo> = ({ item }) => <Item item={item} />;
 
-  return (
-    <SafeAreaView style={styles.container}>
-      <FlatList data={todos} renderItem={renderItem} keyExtractor={(item, index) => String(item.id + index)} />
-    </SafeAreaView>
-  );
+  console.log('todos', todos);
+
+  return <FlatList data={todos} renderItem={renderItem} keyExtractor={(item, index) => String(item.id + index)} />;
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
-    backgroundColor: '#f3fffd',
+    backgroundColor: 'red',
   },
   item: {
     backgroundColor: '#c3cced',
     padding: 20,
     marginVertical: 8,
-    marginHorizontal: 16,
     borderRadius: 4,
   },
   title: {
     fontSize: 22,
     fontWeight: '500',
-    marginBottom: 5
+    marginBottom: 5,
   },
   status: {
     fontSize: 16,
-  }
+  },
 });
 
 const MemoizedTodo = memo(TodoComponent);

@@ -1,31 +1,47 @@
 import React, { FC, ReactNode } from 'react';
-import { Text as RNText } from 'react-native';
-import useTheme from '../../hooks/use-theme';
-import { Typography } from '../../contexts/theme-context';
-import { getTypographyFontSize } from '../../utils/theme/typography';
+import { StyleSheet, Text as RNText, TextStyle } from 'react-native';
+import useTheme from '@hooks/use-theme';
+import { Typography } from '@app/interfaces/theme';
+import { getTypographyFontSize } from '@utils/theme';
+import theme from '@config/theme';
+import { getTextColor } from '@utils/theme/colors-utils';
 
 interface Props {
   variant?: keyof Typography;
+  color?: 'primary' | 'secondary' | 'disabled';
   children: ReactNode;
+  style?: TextStyle;
 }
 
-const Text: FC<Props> = ({ variant, children }: Props) => {
-  const { typography, palette } = useTheme();
+const Text: FC<Props> = ({ variant, color, style, children }: Props) => {
+  const { palette } = useTheme();
 
   return (
     <RNText
-      style={{
-        fontSize: variant ? getTypographyFontSize(variant) : typography.body,
-        fontWeight: variant?.startsWith('h') ? '700' : '500',
-        color: palette.mode !== 'dark' ? '#333' : '#fbfbfb',
-      }}>
+      style={[
+        styles.text,
+        style,
+        {
+          ...getTypographyFontSize(variant as keyof Typography),
+          color: color ? getTextColor(color) : palette.mode !== 'dark' ? palette.text.primary : '#fbfbfb',
+        },
+      ]}>
       {children}
     </RNText>
   );
 };
 
+const styles = StyleSheet.create({
+  text: {
+    color: theme.palette.text.primary,
+    fontFamily: 'PlusJakartaSans-SemiBold',
+    fontWeight: '600',
+  },
+});
+
 Text.defaultProps = {
   variant: 'body',
+  color: 'primary',
 };
 
 export default Text;

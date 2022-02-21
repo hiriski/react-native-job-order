@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { API_BASE_URL } from '../../constants';
+import { API_BASE_URL } from '@app/constants';
 import { setupInterceptorsTo } from './interceptors';
 
 export * from './http-status-codes';

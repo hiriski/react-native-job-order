@@ -7,7 +7,7 @@ import { MainLayout } from 'components/layouts';
 import ScreenHeader from 'components/screen-header';
 import { AUTH_STACK, ROOT_STACK } from '@config/navigators';
 import { IconButton, Text } from '@components/ui';
-import { grey } from '@utils/theme/colors';
+import { grey } from '@app/lib/theme/colors';
 import useTheme from '@hooks/use-theme';
 import FloatingActionButton from '@components/ui/floating-action-button';
 

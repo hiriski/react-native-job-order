@@ -3,7 +3,7 @@ import { View, StyleSheet, SafeAreaView, Dimensions, Image } from 'react-native'
 import FocusAwareStatusBar from '@components/focus-aware-status-bar';
 import { useNavigation } from '@react-navigation/native';
 import Text from '@components/ui/text';
-import { blueGrey, grey, lightBlue} from '@utils/theme/colors';
+import { blueGrey, grey, lightBlue} from '@app/lib/theme/colors';
 import { Button } from '@components/ui';
 
 const backgroundColor = blueGrey[200];

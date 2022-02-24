@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { StyleSheet, TextInput } from 'react-native';
-import { shape } from '@config/theme';
-import { grey } from '@utils/theme/colors';
+import { grey } from '@app/lib/theme/colors';
+import { createTheme } from '@config/theme';
 
 interface Props {
   value: string;
@@ -22,6 +22,8 @@ const InputText: FC<Props> = (props: Props) => {
     />
   );
 };
+
+const { shape } = createTheme();
 
 const styles = StyleSheet.create({
   root: {

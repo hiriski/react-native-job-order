@@ -1,15 +1,16 @@
 import { PaletteText } from '@app/interfaces/theme';
-import { palettes } from '@config/theme';
+import { createTheme } from '@config/theme';
 
 export const getTextColor = (color: keyof PaletteText): string => {
+  const { palette } = createTheme();
   switch (color) {
     case 'primary':
-      return palettes.text.primary;
+      return palette.text.primary;
     case 'secondary':
-      return palettes.text.secondary;
+      return palette.text.secondary;
     case 'disabled':
-      return palettes.text.disabled;
+      return palette.text.disabled;
     default:
-      return palettes.text.primary;
+      return palette.text.primary;
   }
 };

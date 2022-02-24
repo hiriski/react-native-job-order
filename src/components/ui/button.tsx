@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { StyleSheet, Text, Pressable, PressableProps } from 'react-native';
 import { getButtonColor, getButtonSize } from '@utils/theme/button';
-import { shape } from '@config/theme';
+import { createTheme } from '@config/theme';
 import { ButtonSize, Palette } from '@app/interfaces/theme';
 import useTheme from '@hooks/use-theme';
 
@@ -39,11 +39,13 @@ const Button: FC<Props> = (props: Props) => {
   );
 };
 
+const theme = createTheme();
+
 const styles = StyleSheet.create({
   root: {
     paddingHorizontal: 16,
     paddingVertical: 6,
-    borderRadius: shape.borderRadius,
+    borderRadius: theme.shape.borderRadius,
     alignItems: 'center',
     justifyContent: 'center',
   },

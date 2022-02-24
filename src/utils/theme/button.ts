@@ -1,8 +1,8 @@
-import theme from '@config/theme';
 import { ButtonSize, Palette } from '@app/interfaces/theme';
+import { createTheme } from '@config/theme';
 
 export const getButtonColor = (color: keyof Pick<Palette, 'primary' | 'secondary'>, pressed: boolean): string => {
-  const { palette } = theme;
+  const { palette } = createTheme();
   const { primary, secondary } = palette;
   switch (color) {
     case 'primary':

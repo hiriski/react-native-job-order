@@ -17,7 +17,7 @@ import {
 } from './actions';
 import AuthService from './service';
 import { LoginModel, RegisterModel } from '@app/interfaces/auth';
-import { ToastAndroid } from 'react-native';
+import { Alert, ToastAndroid } from 'react-native';
 import { removeToken, saveToken } from '@utils/token';
 
 // Type definitions of return of result.
@@ -52,7 +52,8 @@ function* loginRequest({ payload }: LoginEffect): SagaIterator {
     yield put(loginFailure());
     // Show toast.
     console.log('reason', reason);
-    ToastAndroid.show('Login failure', ToastAndroid.LONG);
+    // ToastAndroid.show('Login failure', ToastAndroid.LONG);
+    Alert.alert('Login failure');
   }
 }
 

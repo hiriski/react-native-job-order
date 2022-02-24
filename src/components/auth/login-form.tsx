@@ -4,22 +4,22 @@ import { Button, MaterialTextField, Text } from '@components/ui';
 import { useDispatch } from 'react-redux';
 import { loginRequest } from '@store/auth/actions';
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
+// import { joiResolver } from '@hookform/resolvers/joi';
+// import Joi from 'react-native-joi';
 import { LoginModel } from '@app/interfaces/auth';
 
 type Inputs = LoginModel;
 
 const imageIcon = '../../assets/icons/icon-invoices.png';
 const defaultValues = {
-  email: '',
-  password: '',
+  email: 'cs@yopmail.com',
+  password: 'password',
 };
 
-const schema = yup.object().shape({
-  email: yup.string().required('Email tidak boleh kosong'),
-  password: yup.string().required('Password tidak boleh kosong'),
-});
+// const schema = Joi.object({
+//   email: Joi.string().required(),
+//   password: Joi.string().required(),
+// });
 
 const LoginForm: FC = () => {
   const dispatch = useDispatch();
@@ -30,7 +30,7 @@ const LoginForm: FC = () => {
     formState: { errors },
   } = useForm({
     defaultValues,
-    resolver: yupResolver(schema),
+    // resolver: joiResolver(schema),
   });
 
   const onSubmit: SubmitHandler<Inputs> = (values) => {

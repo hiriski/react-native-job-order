@@ -3,8 +3,8 @@ import { StyleSheet, Text as RNText, TextStyle } from 'react-native';
 import useTheme from '@hooks/use-theme';
 import { Typography } from '@app/interfaces/theme';
 import { getTypographyFontSize } from '@utils/theme';
-import theme from '@config/theme';
 import { getTextColor } from '@utils/theme/colors-utils';
+import { createTheme } from '@config/theme';
 
 interface Props {
   variant?: keyof Typography;
@@ -30,6 +30,8 @@ const Text: FC<Props> = ({ variant, color, style, children }: Props) => {
     </RNText>
   );
 };
+
+const theme = createTheme();
 
 const styles = StyleSheet.create({
   text: {

@@ -1,5 +1,5 @@
 import { Typography } from '@app/interfaces/theme';
-import theme from '@config/theme';
+import { createTheme } from '@config/theme';
 
 interface ReturnTypographyFontSize {
   fontSize: number;
@@ -11,7 +11,7 @@ const fontBold = 'PlusJakartaSans-ExtraBold';
 const fontSemiBold = 'PlusJakartaSans-Medium';
 
 export const getTypographyFontSize = (variant: keyof Typography): ReturnTypographyFontSize => {
-  const { typography } = theme;
+  const { typography } = createTheme();
   switch (variant) {
     case 'h1':
       return {

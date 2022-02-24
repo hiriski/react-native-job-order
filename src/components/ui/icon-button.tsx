@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Text, View, StyleSheet, TouchableNativeFeedback } from 'react-native';
-import { palettes } from '@config/theme';
+import useTheme from '@hooks/use-theme';
 
 const IconButton = () => {
-  const [rippleColor] = useState(palettes.primary.main);
+  const { palette } = useTheme();
+  const [rippleColor] = useState(palette.primary.main);
   return (
     <TouchableNativeFeedback background={TouchableNativeFeedback.Ripple(rippleColor, true)}>
       <View style={styles.touchable}>

@@ -1,4 +1,4 @@
-type PaletteMode = 'light' | 'dark';
+export type PaletteMode = 'light' | 'dark';
 export type ThemeSize = 'small' | 'medium' | 'large';
 export type ButtonSize = ThemeSize;
 export type Spacing = number;
@@ -31,11 +31,17 @@ export interface ThemePalette {
   contrastText: string;
 }
 
+export interface PaletteBackground {
+  default: string;
+  paper: string;
+}
+
 export interface Palette {
   mode: PaletteMode;
   primary: ThemePalette;
   secondary: ThemePalette;
   text: PaletteText;
+  background: PaletteBackground;
 }
 
 export interface Theme {

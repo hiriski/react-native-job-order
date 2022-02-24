@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { StyleSheet, TextStyle } from 'react-native';
 
 import { TextField, FilledTextField, OutlinedTextField, TextFieldProps } from 'rn-material-ui-textfield';
-import theme from '@config/theme';
+import { createTheme } from '@config/theme';
 import useTheme from '@hooks/use-theme';
 
 interface Props extends TextFieldProps {
@@ -54,6 +54,8 @@ const MaterialTextField: FC<Props> = (props: Props) => {
     );
   }
 };
+
+const theme = createTheme();
 
 const textStyle: TextStyle = {
   color: theme.palette.text.primary,

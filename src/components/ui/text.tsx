@@ -21,10 +21,12 @@ const Text: FC<Props> = ({ variant, color, style, children }: Props) => {
       style={[
         styles.text,
         style,
-        {
-          ...getTypographyFontSize(variant as keyof Typography),
-          color: color ? getTextColor(color) : palette.mode !== 'dark' ? palette.text.primary : '#fbfbfb',
-        },
+        variant
+          ? {
+              ...getTypographyFontSize(variant as keyof Typography),
+              color: color ? getTextColor(color) : palette.mode !== 'dark' ? palette.text.primary : '#fbfbfb',
+            }
+          : {},
       ]}>
       {children}
     </RNText>

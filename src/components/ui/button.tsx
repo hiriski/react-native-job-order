@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { StyleSheet, Text, Pressable, PressableProps } from 'react-native';
+import { StyleSheet, Text, Pressable, PressableProps, View, ActivityIndicator } from 'react-native';
 import { getButtonColor, getButtonSize } from '@utils/theme/button';
 import { createTheme } from '@config/theme';
 import { ButtonSize, Palette } from '@app/interfaces/theme';
@@ -14,6 +14,7 @@ interface Props extends PressableProps {
   uppercase?: boolean;
   title: string;
   size?: ButtonSize;
+  loading?: boolean;
 }
 
 // @ts-ignore
@@ -22,8 +23,13 @@ const backgroundColor = (color?: ButtonColor, pressed: boolean): string => {
 };
 
 const Button: FC<Props> = (props: Props) => {
-  const { color, title, size } = props;
+  const { color, title, size, loading } = props;
   const { palette } = useTheme();
+
+  const renderLoading = () => {
+    return <ActivityIndicator size={24} color="#fbfbfb" />;
+  };
+
   return (
     <Pressable
       {...props}
@@ -34,7 +40,11 @@ const Button: FC<Props> = (props: Props) => {
           height: getButtonSize(size as ButtonSize),
         },
       ]}>
-      <Text style={[styles.buttonText, { color: palette.primary.contrastText }]}>{title}</Text>
+      {!loading ? (
+        <Text style={[styles.buttonText, { color: palette.primary.contrastText }]}>{title}</Text>
+      ) : (
+        renderLoading
+      )}
     </Pressable>
   );
 };
@@ -62,6 +72,7 @@ Button.defaultProps = {
   uppercase: false,
   size: 'medium',
   variant: 'contained',
+  loading: false,
 };
 
 export default Button;

@@ -8,17 +8,12 @@ import ScreenHeader from '@components/screen-header';
 import { amber } from '@app/lib/theme/colors';
 import LoginForm from '@components/auth/login-form';
 import { useDispatch } from 'react-redux';
-import { revokeTokenRequest } from '@store/auth/actions';
 
 const backgroundColor = '#fbfbfb';
 
 const CustomerScreen: FC = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(revokeTokenRequest());
-  }, []);
 
   return (
     <SafeAreaView style={styles.root}>

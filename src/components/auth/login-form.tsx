@@ -7,6 +7,7 @@ import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 // import { joiResolver } from '@hookform/resolvers/joi';
 // import Joi from 'react-native-joi';
 import { LoginModel } from '@app/interfaces/auth';
+import { useAppSelector } from '@app/store/hook';
 
 type Inputs = LoginModel;
 
@@ -23,6 +24,7 @@ const defaultValues = {
 
 const LoginForm: FC = () => {
   const dispatch = useDispatch();
+  const { loginLoading } = useAppSelector((state) => state.auth);
 
   const {
     control,
@@ -34,6 +36,7 @@ const LoginForm: FC = () => {
   });
 
   const onSubmit: SubmitHandler<Inputs> = (values) => {
+    console.log('submited values', values);
     dispatch(loginRequest(values));
   };
 
@@ -74,7 +77,7 @@ const LoginForm: FC = () => {
           />
         )}
       />
-      <Button size="large" title="SIGN IN" onPress={handleSubmit(onSubmit)} />
+      <Button size="large" title="SIGN IN" onPress={handleSubmit(onSubmit)} loading={loginLoading} />
     </ScrollView>
   );
 };

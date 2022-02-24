@@ -6,9 +6,9 @@ import FocusAwareStatusBar from 'components/focus-aware-status-bar';
 import { MainLayout } from 'components/layouts';
 import { useAppSelector } from 'store/hook';
 import Todo from 'components/todo';
-import { fetchTodos } from 'store/sample/actions';
 import ScreenHeader from 'components/screen-header';
 import { AUTH_STACK, ROOT_STACK } from '@config/navigators';
+// import TabViewExample from '@app/components/overview/tab-view';
 
 const backgroundColor = '#fbfbfb';
 
@@ -18,9 +18,9 @@ const OverviewScreen: FC = () => {
   const { listTodo } = useAppSelector((state) => state.sample);
   const { todos } = listTodo;
 
-  useEffect(() => {
-    fetchTodos();
-  }, []);
+  // useEffect(() => {
+  //   fetchTodos();
+  // }, []);
 
   return (
     <SafeAreaView style={styles.root}>
@@ -31,7 +31,9 @@ const OverviewScreen: FC = () => {
           title={'GO TO LOGIN SCREEN'}
           onPress={() => navigation.navigate(ROOT_STACK.AUTH as never, { screen: AUTH_STACK.LOGIN } as never)}
         />
-        <Todo todos={todos} />
+
+        {/* <TabViewExample /> */}
+        {/* <Todo todos={todos} /> */}
       </MainLayout>
     </SafeAreaView>
   );

@@ -3,8 +3,8 @@ import { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosRequestHeaders, Axi
 import { httpResponseUnauthorized } from '.';
 import { getToken } from '@utils/token';
 
-const onRequest = (config: AxiosRequestConfig): AxiosRequestConfig => {
-  const accessToken = getToken();
+const onRequest = async (config: AxiosRequestConfig): Promise<AxiosRequestConfig> => {
+  const accessToken = await getToken();
   if (accessToken) {
     config.headers = {
       Authorization: `Bearer ${accessToken}`,

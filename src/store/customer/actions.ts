@@ -1,6 +1,6 @@
 import { AnyAction } from 'redux';
 
-import * as ActionTypes from './constants';
+import ActionTypes from './enum';
 import { Customer, CustomerModel, ResponseListCustomer } from '@app/interfaces/customer';
 
 // Actions definiition
@@ -43,7 +43,7 @@ interface FetchingCustomerListSuccess {
 
 interface FetchingCustomer {
   type: typeof ActionTypes.FETCHING_CUSTOMER_REQUESTED;
-  payload: number;
+  payload: string;
 }
 interface FetchingCustomerLoading {
   type: typeof ActionTypes.FETCHING_CUSTOMER_LOADING;
@@ -74,7 +74,7 @@ interface CreateCustomerFailure {
 interface UpdateCustomer {
   type: typeof ActionTypes.UPDATE_CUSTOMER_REQUESTED;
   payload: {
-    id: number;
+    id: string;
     body: CustomerModel;
   };
 }
@@ -91,7 +91,7 @@ interface UpdateCustomerFailure {
 
 interface DeleteCustomer {
   type: typeof ActionTypes.DELETE_CUSTOMER_REQUESTED;
-  payload: number;
+  payload: string;
 }
 interface DeleteCustomerLoading {
   type: typeof ActionTypes.DELETE_CUSTOMER_LOADING;
@@ -142,9 +142,15 @@ export const setDialogDetaiLCustomer = (open: boolean, id: number | null): SetDi
 });
 
 /** fetch customer list */
-export const fetchCustomerList = (payload?: Record<string, string>): FetchingCustomerList | AnyAction => ({
+export const fetchCustomerListRequest = (payload?: Record<string, string>): FetchingCustomerList | AnyAction => ({
   type: ActionTypes.FETCHING_CUSTOMER_LIST_REQUESTED,
   payload,
+});
+export const fetchCustomerListLoading = (): FetchingCustomerListLoading => ({
+  type: ActionTypes.FETCHING_CUSTOMER_LIST_LOADING,
+});
+export const fetchingCustomerListFailure = (): FetchingCustomerListFailure => ({
+  type: ActionTypes.FETCHING_CUSTOMER_LIST_FAILURE,
 });
 export const fetchingCustomerListSuccess = (payload: ResponseListCustomer): FetchingCustomerListSuccess => ({
   type: ActionTypes.FETCHING_CUSTOMER_LIST_SUCCESS,
@@ -152,7 +158,7 @@ export const fetchingCustomerListSuccess = (payload: ResponseListCustomer): Fetc
 });
 
 /** fetch customer by id */
-export const fetchCustomer = (payload: number): FetchingCustomer => ({
+export const fetchCustomer = (payload: string): FetchingCustomer => ({
   type: ActionTypes.FETCHING_CUSTOMER_REQUESTED,
   payload,
 });
@@ -168,7 +174,7 @@ export const fetchingCustomerSuccess = (payload: Customer): FetchingCustomerSucc
 });
 
 /** create customer */
-export const createCustomer = (payload: CustomerModel): CreateCustomer => ({
+export const createCustomerRequest = (payload: CustomerModel): CreateCustomer => ({
   type: ActionTypes.CREATE_CUSTOMER_REQUESTED,
   payload,
 });
@@ -184,7 +190,7 @@ export const createCustomerSuccess = (payload: Customer): CreateCustomerSuccesss
 });
 
 /** update customer */
-export const updateCustomer = (id: number, body: CustomerModel): UpdateCustomer => ({
+export const updateCustomerRequest = (id: string, body: CustomerModel): UpdateCustomer => ({
   type: ActionTypes.UPDATE_CUSTOMER_REQUESTED,
   payload: { id, body },
 });
@@ -200,7 +206,7 @@ export const updateCustomerSuccess = (payload: Customer): UpdateCustomerSuccess 
 });
 
 /** delete customer */
-export const deleteCustomer = (payload: number): DeleteCustomer => ({
+export const deleteCustomerRequest = (payload: string): DeleteCustomer => ({
   type: ActionTypes.DELETE_CUSTOMER_REQUESTED,
   payload,
 });

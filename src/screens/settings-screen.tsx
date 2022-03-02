@@ -1,58 +1,73 @@
 import React, { FC, useState } from 'react';
-import { View, StyleSheet, ScrollView, Switch, StatusBar, Alert, ToastAndroid } from 'react-native';
+import { View, StyleSheet, ScrollView, Switch, StatusBar, Alert, ToastAndroid, TextInput } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/core';
 import FocusAwareStatusBar from 'components/focus-aware-status-bar';
 // import Text from 'components/ui/text';
 import { MainLayout } from 'components/layouts';
 import ScreenHeader from 'components/screen-header';
-import { AUTH_STACK, ROOT_STACK } from '@config/navigators';
-import { IconButton, MenuItem, Text } from '@components/ui';
+import { AUTH_STACK, ROOT_STACK, USER_STACK } from '@config/navigators';
+import { IconButton, MenuItem, Text, MaterialIcon } from '@components/ui';
 import { grey } from '@app/lib/theme/colors';
 import useTheme from '@hooks/use-theme';
 import FloatingActionButton from '@components/ui/floating-action-button';
 import { createSpacing } from '@app/utils/theme';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useDispatch } from 'react-redux';
 import { revokeTokenRequest } from '@app/store/auth/actions';
+import { toggleDarkMode } from '@app/store/common/actions';
+import { useAppSelector } from '@app/store/hook';
 
 const backgroundColor = '#fbfbfb';
 
 const SettingsScreen: FC = () => {
   const dispatch = useDispatch();
+  const { mode } = useAppSelector((state) => state.common);
   const navigation = useNavigation();
   const { palette } = useTheme();
-
-  const [isEnableDarkMode, setIsEnableDarkMode] = useState(false);
-  const toggleSwitch = () => setIsEnableDarkMode((previousState) => !previousState);
 
   const onBack = () => {
     Alert.alert('Yeah');
   };
 
-  const onPressMenuItem = () => {
-    // Alert.alert('Menu item pressed');
-    ToastAndroid.show('Menu item pressed', ToastAndroid.LONG);
-    setIsEnableDarkMode((previousState) => !previousState);
+  const handleToggleDarkMode = () => {
+    dispatch(toggleDarkMode());
   };
 
   const handleLogout = () => {
     dispatch(revokeTokenRequest());
   };
 
+  const backgroundStyle = {
+    backgroundColor: palette.background.default,
+  };
+
+  const navigateToUserListScreen = () => {
+    navigation.navigate(ROOT_STACK.USER as never, { screen: USER_STACK.USER_LIST } as never);
+  };
+
   return (
-    <SafeAreaView style={styles.root}>
-      <FocusAwareStatusBar barStyle="dark-content" backgroundColor={backgroundColor} />
+    <SafeAreaView style={[styles.root, { ...backgroundStyle }]}>
+      <FocusAwareStatusBar
+        barStyle={palette.mode === 'dark' ? 'light-content' : 'dark-content'}
+        backgroundColor={palette.background.default}
+      />
       <ScreenHeader title="Settings" enableBackButton={true} onBack={onBack} />
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <MenuItem
           title="Enable Dark Mode"
           enableSwitch={true}
-          switchValue={isEnableDarkMode}
-          onPress={onPressMenuItem}
-          renderStartIcon={<Icon name="bedtime" size={24} />}
+          switchValue={mode === 'dark'}
+          onPress={handleToggleDarkMode}
+          renderStartIcon={<MaterialIcon name="bedtime" size={22} />}
         />
-        <MenuItem title="Log out" onPress={handleLogout} renderStartIcon={<Icon name="logout" size={24} />} />
+        <MenuItem
+          title="List User"
+          onPress={navigateToUserListScreen}
+          renderStartIcon={<MaterialIcon name="people" size={22} />}
+        />
+        <MenuItem title="Log out" onPress={handleLogout} renderStartIcon={<MaterialIcon name="logout" size={22} />} />
+
+        <TextInput placeholder="hello world" />
 
         <View style={{ paddingHorizontal: createSpacing(6) }}>
           <Text variant="h3">Test Text</Text>

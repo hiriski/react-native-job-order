@@ -7,6 +7,7 @@ import { PaletteMode, Theme } from '@app/interfaces/theme';
 export const createTheme = (mode?: PaletteMode): Theme => ({
   palette: {
     ...palette,
+    mode: mode || 'light',
     background: mode !== 'dark' ? paletteLight.background : paletteDark.background,
     text: mode !== 'dark' ? paletteLight.text : paletteDark.text,
   },

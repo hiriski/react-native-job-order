@@ -1,12 +1,14 @@
 import React, { FC } from 'react';
-import { ReactReduxProvider, NavigationProvider, ThemeProvider } from './src/components/providers';
+import { ReactReduxProvider, NavigationProvider, ThemeProvider, SafeAreaProvider } from './src/components/providers';
 import { RootStackNavigator } from './src/navigations';
 
 const App: FC = () => (
   <ReactReduxProvider>
     <ThemeProvider>
       <NavigationProvider>
-        <RootStackNavigator />
+        <SafeAreaProvider>
+          <RootStackNavigator />
+        </SafeAreaProvider>
       </NavigationProvider>
     </ThemeProvider>
   </ReactReduxProvider>

@@ -7,3 +7,8 @@ export { default as LoginScreen } from './login-screen';
 export { default as ForgotPasswordScreen } from './forgot-password-screen';
 export { default as InventoryScreen } from './inventory-screen';
 export { default as FingerPrintScreen } from './fingerprint-screen';
+export { default as UserListScreen } from './user-list-screen';
+export { default as UserDetailScreen } from './user-detail-screen';
+export { default as CustomerListScreen } from './customer-list-screen';
+export { default as CustomerDetailScreen } from './customer-detail-screen';
+export { default as CreateCustomerScreen } from './create-customer-screen';

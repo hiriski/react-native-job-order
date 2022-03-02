@@ -19,6 +19,7 @@ import AuthService from './service';
 import { LoginModel, RegisterModel } from '@app/interfaces/auth';
 import { Alert, ToastAndroid } from 'react-native';
 import { removeToken, saveToken } from '@utils/token';
+import { clearAsyncStorage } from '@utils/storage';
 
 // Type definitions of return of result.
 type TResponseLogin = SagaReturnType<typeof AuthService.login>;
@@ -85,11 +86,14 @@ function* revokeTokenRequest(): SagaIterator {
       yield put(revokeTokenSuccess());
       yield put(resetAuthState());
       removeToken().then(() => console.log('Token has been removed from storage!'));
+
+      clearAsyncStorage();
     }
   } catch (reason) {
     // removeToken();
     yield put(revokeTokenFailure());
     yield put(resetAuthState()); // However reset all state
+    clearAsyncStorage();
   }
 }
 

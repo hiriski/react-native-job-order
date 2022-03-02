@@ -22,5 +22,5 @@ export interface UserModel extends Omit<User, 'id' | 'created_at' | 'role' | 'st
 export interface ResponseListUser {
   data: User[];
   links: LaravelPaginationLinks;
-  meta?: LaravelPaginationMeta;
+  meta: LaravelPaginationMeta;
 }

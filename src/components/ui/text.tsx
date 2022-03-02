@@ -4,40 +4,37 @@ import useTheme from '@hooks/use-theme';
 import { Typography } from '@app/interfaces/theme';
 import { getTypographyFontSize } from '@utils/theme';
 import { getTextColor } from '@utils/theme/colors-utils';
-import { createTheme } from '@config/theme';
 
 interface Props {
   variant?: keyof Typography;
   color?: 'primary' | 'secondary' | 'disabled';
   children: ReactNode;
   style?: TextStyle;
+  fontSize?: number | undefined;
 }
 
-const Text: FC<Props> = ({ variant, color, style, children }: Props) => {
+const Text: FC<Props> = ({ variant, color, style, fontSize, children }: Props) => {
   const { palette } = useTheme();
 
   return (
     <RNText
-      style={[
+      style={StyleSheet.flatten([
         styles.text,
-        style,
         variant
           ? {
+              color: color ? getTextColor(color, palette.mode) : palette.text.primary,
               ...getTypographyFontSize(variant as keyof Typography),
-              color: color ? getTextColor(color) : palette.mode !== 'dark' ? palette.text.primary : '#fbfbfb',
             }
           : {},
-      ]}>
+        style,
+      ])}>
       {children}
     </RNText>
   );
 };
 
-const theme = createTheme();
-
 const styles = StyleSheet.create({
   text: {
-    color: theme.palette.text.primary,
     fontFamily: 'PlusJakartaSans-SemiBold',
     fontWeight: '600',
   },
@@ -46,6 +43,7 @@ const styles = StyleSheet.create({
 Text.defaultProps = {
   variant: 'body',
   color: 'primary',
+  fontSize: undefined,
 };
 
 export default Text;

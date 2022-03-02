@@ -1,7 +1,10 @@
+import { Theme } from '@app/interfaces/theme';
 import { useContext } from 'react';
 import { themeContext } from '../contexts';
 
-const useTheme = () => {
+interface UseTheme extends Theme {}
+
+const useTheme = (): UseTheme => {
   const theme = useContext(themeContext);
   return theme;
 };

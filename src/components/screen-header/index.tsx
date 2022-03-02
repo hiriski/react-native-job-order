@@ -1,8 +1,16 @@
 import useTheme from '@app/hooks/use-theme';
 import { grey } from '@app/lib/theme/colors';
-import Text from 'components/ui/text';
+import { Typography } from 'components/ui';
 import React, { FC, ReactNode, useMemo, useState } from 'react';
-import { StyleSheet, View, TouchableNativeFeedback, Text as RNText } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  TouchableNativeFeedback,
+  Text as RNText,
+  ViewStyle,
+  ViewProps,
+  TextStyle,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { createSpacing } from '@utils/theme';
 
@@ -11,9 +19,11 @@ interface Props {
   title?: string;
   enableBackButton?: boolean;
   onBack?: () => void;
+  containerStyle?: ViewStyle;
+  textStyle?: TextStyle;
 }
 
-const ScreenHeader: FC<Props> = ({ children, title, enableBackButton, onBack }: Props) => {
+const ScreenHeader: FC<Props> = ({ children, title, enableBackButton, onBack, containerStyle, textStyle }: Props) => {
   const { palette } = useTheme();
 
   const [rippleColor] = useMemo(() => (palette.mode === 'dark' ? grey[500] : grey[200]), [palette]);
@@ -34,13 +44,13 @@ const ScreenHeader: FC<Props> = ({ children, title, enableBackButton, onBack }: 
   );
 
   return (
-    <View style={styles.root}>
+    <View style={StyleSheet.flatten([styles.root, containerStyle])}>
       {!children ? (
         <View style={[styles.container, { paddingHorizontal: !enableBackButton ? createSpacing(4) : 0 }]}>
           {enableBackButton ? renderBackButton() : null}
-          <Text style={styles.textStyle} variant="h1">
+          <Typography style={StyleSheet.flatten([styles.textStyle, textStyle])} variant="h1">
             {title}
-          </Text>
+          </Typography>
         </View>
       ) : (
         children
@@ -52,9 +62,8 @@ const ScreenHeader: FC<Props> = ({ children, title, enableBackButton, onBack }: 
 const styles = StyleSheet.create({
   root: {
     paddingVertical: createSpacing(2),
-    paddingBottom: 20,
+    paddingBottom: createSpacing(3),
   },
-
   container: {
     flexDirection: 'row',
     alignItems: 'center',

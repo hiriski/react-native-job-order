@@ -6,12 +6,12 @@ import { grey } from '@app/lib/theme/colors';
  */
 export const paletteDark: Pick<Palette, 'text' | 'background'> = {
   text: {
-    primary: grey[800],
-    secondary: grey[600],
-    disabled: grey[500],
+    primary: grey[100],
+    secondary: grey[200],
+    disabled: grey[300],
   },
   background: {
-    default: '#f9f9f9',
-    paper: '#fff',
+    default: grey[900],
+    paper: grey.A100,
   },
 };

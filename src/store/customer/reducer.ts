@@ -2,16 +2,18 @@ import { Customer } from '@app/interfaces/customer';
 import { LaravelPaginationLinks, LaravelPaginationMeta } from '@app/interfaces/laravel-pagination';
 
 import { CustomerAction } from './actions';
-import * as ActionTypes from './constants';
+import ActionTypes from './enum';
+import moment from 'moment';
 
 export interface CustomerState {
   listCustomer: {
     isFetching: boolean;
     isError: boolean;
     isSuccess: boolean;
-    data: Array<Customer> | null;
+    data: Customer[] | null;
     meta?: LaravelPaginationMeta;
     links?: LaravelPaginationLinks;
+    lastFetched?: string | Date;
   };
 
   detail: {
@@ -58,8 +60,9 @@ const initialState = {
     isError: false,
     isSuccess: false,
     data: [],
-    meta: null,
-    links: null,
+    meta: undefined,
+    links: undefined,
+    lastFetched: undefined,
   },
 
   detail: {
@@ -100,7 +103,7 @@ const initialState = {
   },
 };
 
-const customerReducer = (state: CustomerState = initialState, action: CustomerAction): CustomerState => {
+export const customerReducer = (state: CustomerState = initialState, action: CustomerAction): CustomerState => {
   switch (action.type) {
     // fetch list customer.
     case ActionTypes.FETCHING_CUSTOMER_LIST_LOADING:
@@ -131,6 +134,7 @@ const customerReducer = (state: CustomerState = initialState, action: CustomerAc
           isFetching: false,
           isError: false,
           isSuccess: true,
+          lastFetched: moment(new Date()).toDate(),
 
           /**
            * data
@@ -289,5 +293,3 @@ const customerReducer = (state: CustomerState = initialState, action: CustomerAc
       return state;
   }
 };
-
-export default customerReducer;

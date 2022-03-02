@@ -9,8 +9,8 @@ import { Palette, Shape, Typography } from '@app/interfaces/theme';
 /**
  * Base palettes
  */
-export const palette: Omit<Palette, 'background' | 'text'> = {
-  mode: 'light', // default light.
+export const palette: Omit<Palette, 'background' | 'text' | 'mode'> = {
+  // mode: 'light', // default light.
   primary: {
     main: '#3393FF',
     dark: '#1955B7',
@@ -29,13 +29,13 @@ export const palette: Omit<Palette, 'background' | 'text'> = {
  * Typography
  */
 export const typography: Typography = {
-  h1: 28,
-  h2: 24,
-  h3: 22,
-  h4: 20,
-  h5: 19,
-  h6: 16,
-  body: 15,
+  h1: 26,
+  h2: 22,
+  h3: 20,
+  h4: 18,
+  h5: 16,
+  h6: 15,
+  body: 14,
   subtitle: 13,
 };
 

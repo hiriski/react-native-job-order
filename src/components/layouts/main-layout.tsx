@@ -1,5 +1,6 @@
 import React, { FC, ReactNode } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { View } from '@components/ui';
 
 interface Props {
   children: ReactNode;
@@ -12,7 +13,6 @@ const MainLayout: FC<Props> = ({ children }: Props) => {
 const styles = StyleSheet.create({
   root: {
     paddingHorizontal: 20,
-    paddingTop: 8,
   },
 });
 

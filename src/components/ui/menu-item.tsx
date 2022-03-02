@@ -43,7 +43,13 @@ const MenuItem: FC<Props> = ({ title, enableSwitch, switchValue, onPress, render
           <View style={styles.content}>
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
               {renderStartIcon}
-              <Text style={[styles.textStyle, { marginLeft: renderStartIcon ? createSpacing(6) : 0 }]}>{title}</Text>
+              <Text
+                style={[
+                  styles.textStyle,
+                  { marginLeft: renderStartIcon ? createSpacing(6) : 0, color: palette.text.primary },
+                ]}>
+                {title}
+              </Text>
             </View>
             {enableSwitch && (
               <Switch
@@ -63,8 +69,8 @@ const MenuItem: FC<Props> = ({ title, enableSwitch, switchValue, onPress, render
 
 const styles = StyleSheet.create({
   root: {
-    borderBottomColor: grey[100],
-    borderBottomWidth: 1,
+    // borderBottomColor: grey[100],
+    // borderBottomWidth: 1,
   },
   touchableInnner: {
     flex: 1,
@@ -80,10 +86,9 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     marginTop: -4,
-    fontSize: 17,
+    fontSize: 16,
     fontFamily: 'PlusJakartaSans-SemiBold',
     fontWeight: '600',
-    color: grey[800],
   },
 });
 

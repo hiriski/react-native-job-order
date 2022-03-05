@@ -49,11 +49,23 @@ export const getTypographyFontSize = (variant: keyof Typography): ReturnTypograp
         fontFamily: fontBold,
         fontWeight: '600',
       };
+    case 'body2':
+      return {
+        fontSize: typography.body2,
+        fontFamily: fontBold,
+        fontWeight: '600',
+      };
     case 'subtitle':
       return {
         fontSize: typography.subtitle,
         fontFamily: fontSemiBold,
         fontWeight: '400',
+      };
+    case 'subtitle2':
+      return {
+        fontSize: typography.subtitle2,
+        fontFamily: fontBold,
+        fontWeight: '600',
       };
     default:
       return {

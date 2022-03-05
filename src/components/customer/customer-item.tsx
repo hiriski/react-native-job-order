@@ -30,7 +30,7 @@ const CustomerItem: FC<Props> = ({ customer, lastItem }: Props) => {
       <Pressable
         onPress={onPress}
         style={({ pressed }) => [
-          { backgroundColor: pressed ? grey[300] : palette.background.paper },
+          { backgroundColor: pressed ? grey[200] : palette.background.paper },
           { ...styles.container },
         ]}>
         <Avatar size={40} color={colors500[Math.floor(Math.random() * colors500.length)]} />

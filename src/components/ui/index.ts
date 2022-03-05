@@ -7,4 +7,5 @@ export { default as MaterialTextField } from './material-textfield';
 export { default as IconButton } from './icon-button';
 export { default as MenuItem } from './menu-item';
 export { default as MaterialIcon } from './icon-material-icons';
+export { default as IonIcons } from './icon-ionicons';
 export { default as Avatar } from './avatar';

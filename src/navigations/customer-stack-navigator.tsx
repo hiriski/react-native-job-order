@@ -8,8 +8,20 @@ const CustomerStackNavigator = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen name={CUSTOMER_STACK.CUSTOMER_LIST} component={CustomerListScreen} />
-      <Stack.Screen name={CUSTOMER_STACK.CUSTOMER_DETAIL} component={CustomerDetailScreen} />
-      <Stack.Screen name={CUSTOMER_STACK.CREATE_CUSTOMER} component={CreateCustomerScreen} />
+      <Stack.Screen
+        options={{
+          headerShown: false,
+        }}
+        name={CUSTOMER_STACK.CUSTOMER_DETAIL}
+        component={CustomerDetailScreen}
+      />
+      <Stack.Screen
+        options={{
+          headerShown: false,
+        }}
+        name={CUSTOMER_STACK.CREATE_CUSTOMER}
+        component={CreateCustomerScreen}
+      />
     </Stack.Navigator>
   );
 };

@@ -43,17 +43,17 @@ const CustomerDetailHeader: FC<Props> = ({ customer }: Props) => {
             style={StyleSheet.flatten([styles.userName, { color: palette.primary.contrastText }])}>
             {customer.name}
           </Typography>
-          <Typography style={{ color: palette.primary.contrastText }}>{user.role?.name}</Typography>
+          <Typography style={{ color: palette.primary.contrastText }}>{customer.phone_number}</Typography>
         </View>
       </View>
     </View>
   );
 };
 
-const CustomerDetail: FC<Props> = ({ user }: Props) => {
+const CustomerDetail: FC<Props> = ({ customer }: Props) => {
   return (
     <View style={styles.root}>
-      <CustomerDetailHeader user={user} />
+      <CustomerDetailHeader customer={customer} />
     </View>
   );
 };

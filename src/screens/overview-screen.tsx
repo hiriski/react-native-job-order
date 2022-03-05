@@ -1,5 +1,5 @@
 import React, { FC, useEffect } from 'react';
-import { StyleSheet, Button } from 'react-native';
+import { StyleSheet, Button, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
 import FocusAwareStatusBar from 'components/focus-aware-status-bar';
 // import Text from 'components/ui/text';
@@ -9,6 +9,10 @@ import ScreenHeader from 'components/screen-header';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import useTheme from '@app/hooks/use-theme';
 import OverviewEarning from '@components/overview/earning/earning';
+import { CardJobOrderStatusList } from '@components/overview';
+import OverviewGreeting from '@components/overview/greeting/greeting';
+import TestComponent from '@components/test-component';
+import { clearAsyncStorage } from '@utils/storage';
 
 const OverviewScreen: FC = () => {
   // const navigation = useNavigation();
@@ -17,38 +21,34 @@ const OverviewScreen: FC = () => {
   const { listTodo } = useAppSelector((state) => state.sample);
   // const { todos } = listTodo;
 
-  // useEffect(() => {
-  //   fetchTodos();
-  // }, []);
+  useEffect(() => {
+    // clearAsyncStorage();
+  }, []);
 
   const backgroundStyle = {
     backgroundColor: palette.background.default,
   };
 
   return (
-    <SafeAreaView style={[styles.root, { ...backgroundStyle }]}>
-      <FocusAwareStatusBar barStyle="light-content" backgroundColor={palette.primary.main} />
-      <ScreenHeader
-        title="Overview"
-        containerStyle={{ backgroundColor: palette.primary.main }}
-        textStyle={{ color: palette.primary.contrastText }}
-      />
-      <OverviewEarning />
-      <MainLayout>
-        {/*<Button*/}
-        {/*  title={'GO TO LOGIN SCREEN'}*/}
-        {/*  onPress={() => navigation.navigate(ROOT_STACK.AUTH as never, { screen: AUTH_STACK.LOGIN } as never)}*/}
-        {/*/>*/}
+    <SafeAreaView style={StyleSheet.flatten([styles.root, { ...backgroundStyle }])}>
+      <FocusAwareStatusBar barStyle="dark-content" {...backgroundStyle} />
 
-        {/* <TabViewExample /> */}
-      </MainLayout>
+      {/*<ScreenHeader*/}
+      {/*  title="Overview"*/}
+      {/*  containerStyle={{ backgroundColor: palette.primary.main }}*/}
+      {/*  textStyle={{ color: palette.primary.contrastText }}*/}
+      {/*/>*/}
+
+      <OverviewGreeting />
+      <CardJobOrderStatusList />
+      <TestComponent />
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   root: {
-    flex: 1,
+    // flex: 1,
   },
 });
 

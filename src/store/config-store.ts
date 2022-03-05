@@ -1,17 +1,13 @@
 import { applyMiddleware, compose, createStore } from 'redux';
 import { persistReducer, persistStore } from 'redux-persist';
 import createSagaMiddleware from 'redux-saga';
-// import MMKVStorage from 'react-native-mmkv-storage'; // Storage
 import AsyncStorage from '@react-native-async-storage/async-storage'; // Async Storage
 import rootReducer from './root-reducer';
 import rootSaga from './root-saga';
 import { __DEV__ } from '../constants';
 import { composeWithDevTools } from 'redux-devtools-extension';
-// import { reduxStorage } from './redux-storage';
 
 const sagaMiddleware = createSagaMiddleware();
-
-// const mmkvStorage = new MMKVStorage.Loader().initialize();
 
 // Middleware: Redux Persist Config
 const persistConfig = {

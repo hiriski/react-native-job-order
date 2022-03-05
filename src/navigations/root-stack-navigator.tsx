@@ -1,30 +1,41 @@
 import React, { FC, useState } from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { SafeAreaProvider } from '@components/providers';
 import { AuthStackNavigator, BottomTabNavigator, UserStackNavigator } from '.';
 import { ROOT_STACK } from '@config/navigators';
 import { useAppSelector } from '@store/hook';
-// import { FingerPrintScreen } from '@screens/index';
+import { GuideScreen, NotificationScreen, InvoiceScreen } from '@screens/index';
+import { StatusBar } from 'react-native';
+import useTheme from '@hooks/use-theme';
 
 const RootStack = createNativeStackNavigator();
 
 const RootStackNavigator: FC = () => {
   const { isAuthenticated } = useAppSelector((state) => state.auth);
   const initialRouteName = isAuthenticated ? ROOT_STACK.MAIN : ROOT_STACK.AUTH;
+  const { palette } = useTheme();
 
   return (
-    <RootStack.Navigator initialRouteName={initialRouteName} screenOptions={{ headerShown: false }}>
-      {isAuthenticated ? (
-        <>
-          <RootStack.Screen name={ROOT_STACK.MAIN} component={BottomTabNavigator} />
-          <RootStack.Screen name={ROOT_STACK.USER} component={UserStackNavigator} />
-        </>
-      ) : (
-        <RootStack.Group>
-          <RootStack.Screen name={ROOT_STACK.AUTH} component={AuthStackNavigator} />
-        </RootStack.Group>
-      )}
-    </RootStack.Navigator>
+    <>
+      <StatusBar
+        barStyle={palette.mode === 'dark' ? 'light-content' : 'dark-content'}
+        backgroundColor={palette.background.default}
+      />
+      <RootStack.Navigator initialRouteName={initialRouteName} screenOptions={{ headerShown: false }}>
+        {isAuthenticated ? (
+          <>
+            <RootStack.Screen name={ROOT_STACK.MAIN} component={BottomTabNavigator} />
+            <RootStack.Screen name={ROOT_STACK.USER} component={UserStackNavigator} />
+            <RootStack.Screen name={ROOT_STACK.GUIDE_SCREEN} component={GuideScreen} />
+            <RootStack.Screen name={ROOT_STACK.NOTIFICATION_SCREEN} component={NotificationScreen} />
+            <RootStack.Screen name={ROOT_STACK.INVOICE_SCREEN} component={InvoiceScreen} />
+          </>
+        ) : (
+          <RootStack.Group>
+            <RootStack.Screen name={ROOT_STACK.AUTH} component={AuthStackNavigator} />
+          </RootStack.Group>
+        )}
+      </RootStack.Navigator>
+    </>
   );
 };
 

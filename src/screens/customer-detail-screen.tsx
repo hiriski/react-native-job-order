@@ -17,14 +17,14 @@ import { revokeTokenRequest } from '@app/store/auth/actions';
 import { toggleDarkMode } from '@app/store/common/actions';
 import { useAppSelector } from '@app/store/hook';
 import { useRoute } from '@react-navigation/native';
-import { User } from '@app/interfaces/user';
 import type { RouteProp } from '@react-navigation/native';
-import { UserDetail } from '@components/user';
+import { CustomerDetail } from '@components/customer';
+import { Customer } from '@app/interfaces/customer';
 const backgroundColor = '#fbfbfb';
 
 interface ParamList {
   UserDetail: {
-    customer: User;
+    customer: Customer;
   };
 }
 
@@ -48,7 +48,7 @@ const CustomerDetailScreen: FC = () => {
       <FocusAwareStatusBar barStyle="light-content" backgroundColor={palette.primary.main} />
       {/*<ScreenHeader title="User detail" enableBackButton={true} onBack={onBack} />*/}
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-        <UserDetail user={params.customer} />
+        <CustomerDetail customer={params.customer} />
         <View style={{ paddingHorizontal: createSpacing(6) }}>
           <Text variant="h3">Test Text</Text>
           <Text variant="h3">Test Text</Text>

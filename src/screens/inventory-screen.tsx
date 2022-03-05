@@ -16,11 +16,11 @@ const InventoryScreen: FC = () => {
       <MainLayout>
         <View>
           <Text variant="h2">Inventory Screen</Text>
-          <Button
-            title={'Go to Login Screen'}
-            onPress={() => navigation.navigate(ROOT_STACK.AUTH as never, { screen: AUTH_STACK.LOGIN } as never)}
-          />
-          <Button title={'Go to main stack'} onPress={() => navigation.navigate(ROOT_STACK.MAIN as never)} />
+          {/*<Button*/}
+          {/*  title={'Go to Login Screen'}*/}
+          {/*  onPress={() => navigation.navigate(ROOT_STACK.AUTH as never, { screen: AUTH_STACK.LOGIN } as never)}*/}
+          {/*/>*/}
+          {/*<Button title={'Go to main stack'} onPress={() => navigation.navigate(ROOT_STACK.MAIN as never)} />*/}
         </View>
       </MainLayout>
     </SafeAreaView>

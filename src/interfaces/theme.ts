@@ -11,7 +11,9 @@ export interface Typography {
   h5: number;
   h6: number;
   body: number;
+  body2: number;
   subtitle: number;
+  subtitle2: number;
 }
 
 export interface Shape {

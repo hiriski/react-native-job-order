@@ -1,8 +1,8 @@
-export const createSpacing = (spacing: number): number => {
+export const createSpacing = (unit: number): number => {
   const spacingUnit = 4;
-  if (!spacing) {
+  if (!unit) {
     return 0;
   }
 
-  return spacing * spacingUnit;
+  return unit * spacingUnit;
 };

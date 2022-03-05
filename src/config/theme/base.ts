@@ -36,7 +36,9 @@ export const typography: Typography = {
   h5: 16,
   h6: 15,
   body: 14,
+  body2: 14,
   subtitle: 13,
+  subtitle2: 13,
 };
 
 /**

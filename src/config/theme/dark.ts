@@ -12,6 +12,6 @@ export const paletteDark: Pick<Palette, 'text' | 'background'> = {
   },
   background: {
     default: grey[900],
-    paper: grey.A100,
+    paper: '#0e0e0e',
   },
 };

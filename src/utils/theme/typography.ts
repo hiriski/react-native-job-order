@@ -1,47 +1,48 @@
 import { Typography } from '@app/interfaces/theme';
 import { createTheme } from '@config/theme';
+import { Platform } from 'react-native';
 
-interface ReturnTypographyFontSize {
+interface TypographyFontSize {
   fontSize: number;
-  fontFamily: string;
+  fontFamily?: string;
   fontWeight: 'normal' | 'bold' | '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900' | undefined;
 }
 
 const fontBold = 'PlusJakartaSans-ExtraBold';
 const fontSemiBold = 'PlusJakartaSans-Medium';
 
-export const getTypographyFontSize = (variant: keyof Typography): ReturnTypographyFontSize => {
+export const getTypographyFontSize = (variant: keyof Typography): TypographyFontSize => {
   const { typography } = createTheme();
   switch (variant) {
     case 'h1':
       return {
         fontSize: typography.h1,
         fontFamily: fontBold,
-        fontWeight: '600',
+        fontWeight: Platform.OS === 'ios' ? '800' : '600',
       };
     case 'h2':
       return {
         fontSize: typography.h2,
         fontFamily: fontBold,
-        fontWeight: '600',
+        fontWeight: Platform.OS === 'ios' ? '800' : '600',
       };
     case 'h3':
       return {
         fontSize: typography.h3,
         fontFamily: fontBold,
-        fontWeight: '600',
+        fontWeight: Platform.OS === 'ios' ? '800' : '600',
       };
     case 'h4':
       return {
         fontSize: typography.h4,
         fontFamily: fontBold,
-        fontWeight: '600',
+        fontWeight: Platform.OS === 'ios' ? '800' : '600',
       };
     case 'h5':
       return {
         fontSize: typography.h5,
         fontFamily: fontBold,
-        fontWeight: '600',
+        fontWeight: Platform.OS === 'ios' ? '800' : '600',
       };
     case 'h6':
       return {
@@ -53,7 +54,7 @@ export const getTypographyFontSize = (variant: keyof Typography): ReturnTypograp
       return {
         fontSize: typography.body2,
         fontFamily: fontBold,
-        fontWeight: '600',
+        fontWeight: Platform.OS === 'ios' ? '800' : '600',
       };
     case 'subtitle':
       return {
@@ -65,7 +66,7 @@ export const getTypographyFontSize = (variant: keyof Typography): ReturnTypograp
       return {
         fontSize: typography.subtitle2,
         fontFamily: fontBold,
-        fontWeight: '600',
+        fontWeight: Platform.OS === 'ios' ? '800' : '600',
       };
     default:
       return {

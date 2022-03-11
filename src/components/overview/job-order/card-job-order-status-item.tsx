@@ -16,14 +16,18 @@ const CardJobOrderStatusItem: FC<Props> = ({ item }: Props) => {
   };
   return (
     <Pressable onPress={onPressItem} style={StyleSheet.flatten([styles.root, { backgroundColor: item.color }])}>
-      <RNView>
-        <Typography variant="h1" style={StyleSheet.flatten([styles.textStyle, styles.textCount])}>
-          {item.jo_count || 0}
-        </Typography>
-        <Typography style={StyleSheet.flatten([styles.textStyle, styles.textLabel])}>{item.label}</Typography>
-      </RNView>
-      <RNView>
-        <Ionicons name="flash-sharp" size={40} style={styles.icon} />
+      <RNView style={styles.container}>
+        <RNView>
+          <Typography variant="h1" style={StyleSheet.flatten([styles.textStyle, styles.textCount])}>
+            {item.jo_count || 0}
+          </Typography>
+          <Typography variant="subtitle" style={styles.textStyle}>
+            {item.label}
+          </Typography>
+        </RNView>
+        <RNView>
+          <Ionicons name="flash-sharp" size={40} style={styles.icon} />
+        </RNView>
       </RNView>
     </Pressable>
   );
@@ -32,25 +36,23 @@ const CardJobOrderStatusItem: FC<Props> = ({ item }: Props) => {
 const { shape, palette } = createTheme();
 const styles = StyleSheet.create({
   root: {
-    height: 94,
-    width: 182,
-    alignItems: 'flex-start',
-    justifyContent: 'space-between',
+    minWidth: 160,
     marginRight: createSpacing(3),
     paddingHorizontal: createSpacing(4),
     paddingTop: createSpacing(4),
     borderRadius: shape.borderRadius,
+  },
+  container: {
+    minHeight: 98,
     flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
   },
   textStyle: {
     color: palette.primary.contrastText,
   },
   textCount: {
     fontSize: 30,
-    marginTop: -10,
-  },
-  textLabel: {
-    fontSize: 15,
   },
   icon: {
     color: palette.primary.contrastText,

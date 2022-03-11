@@ -17,6 +17,7 @@ const JobOrderList: FC<Props> = ({ items, isLoading }: Props) => {
       data={items}
       renderItem={renderItem}
       keyExtractor={(item, index) => String(item.id + index)}
+      bounces={false}
     />
   );
 };

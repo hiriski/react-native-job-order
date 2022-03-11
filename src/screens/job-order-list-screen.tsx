@@ -37,7 +37,7 @@ const JobOrderListScreen: FC = () => {
   const sheetRef = useRef<BottomSheet>(null);
 
   // variables
-  const snapPoints = useMemo(() => ['25%', '50%', '90%'], []);
+  const snapPoints = useMemo(() => ['20%', '40%', '90%'], []);
 
   // callbacks
   const handleSheetChange = useCallback((index) => {
@@ -77,10 +77,10 @@ const JobOrderListScreen: FC = () => {
     (props) => (
       <BottomSheetBackdrop
         {...props}
-        pressBehavior="collapse"
+        pressBehavior="close"
         enableTouchThrough={true}
-        // disappearsOnIndex={1}
-        // appearsOnIndex={2}
+        // disappearsOnIndex={0}
+        appearsOnIndex={1}
       />
     ),
     [],
@@ -88,7 +88,12 @@ const JobOrderListScreen: FC = () => {
 
   return (
     <SafeAreaView style={[styles.root, { ...backgroundStyle }]}>
-      <FocusAwareStatusBar barStyle="light-content" backgroundColor={palette.primary.main} />
+      {/*<FocusAwareStatusBar barStyle="light-content" backgroundColor={palette.primary.main} />*/}
+      <FocusAwareStatusBar
+        barStyle={palette.mode === 'dark' ? 'light-content' : 'dark-content'}
+        backgroundColor="transparent"
+        // backgroundColor={palette.background.default}
+      />
       <ScreenHeader
         title="Job Order"
         containerStyle={{ backgroundColor: palette.primary.main }}
@@ -97,10 +102,11 @@ const JobOrderListScreen: FC = () => {
       <JobOrderList items={joList as Jo[]} isLoading={isLoading} />
       <BottomSheet
         backdropComponent={renderBackdrop}
+        enablePanDownToClose={true}
         ref={sheetRef}
         snapPoints={snapPoints}
         onChange={handleSheetChange}>
-        <BottomSheetView>
+        <BottomSheetView style={{ alignItems: 'center', justifyContent: 'center' }}>
           <Typography>Awesome 🔥</Typography>
         </BottomSheetView>
       </BottomSheet>
@@ -112,7 +118,6 @@ const styles = StyleSheet.create({
   root: {
     flex: 1,
     flexGrow: 1,
-    backgroundColor: 'red',
   },
   contentContainer: {
     flex: 1,

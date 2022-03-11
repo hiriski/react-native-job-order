@@ -54,11 +54,13 @@ const CardJobOrderStatusList = () => {
       </RNView>
       <FlatList
         contentContainerStyle={styles.flatList}
+        style={{ marginBottom: createSpacing(4) }}
         horizontal={true}
         showsHorizontalScrollIndicator={false}
         data={cardList}
         renderItem={renderItem}
         keyExtractor={(item) => String(item.id)}
+        bounces={false} // ios only
       />
     </>
   );
@@ -70,7 +72,6 @@ const styles = StyleSheet.create({
   },
   flatList: {
     paddingLeft: createSpacing(4),
-    height: 140,
   },
 });
 

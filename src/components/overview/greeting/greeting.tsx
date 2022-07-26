@@ -31,9 +31,7 @@ const OverviewGreeting = () => {
         <Image style={styles.avatar} source={{ uri: 'https://i.pravatar.cc/100', width: 62, height: 62 }} />
         <View style={{ marginLeft: createSpacing(3) }}>
           <Typography variant="h5">Hello,</Typography>
-          <Typography variant="h3" style={{ marginTop: -4 }}>
-            Ujang Kaget 👋
-          </Typography>
+          <Typography variant="h3">Leon Schoot Kennedy 👋</Typography>
         </View>
       </View>
       {renderNotificationButton()}

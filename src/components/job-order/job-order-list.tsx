@@ -13,7 +13,8 @@ const JobOrderList: FC<Props> = ({ items, isLoading }: Props) => {
   const renderItem: ListRenderItem<Jo> = ({ item }) => <JobOrderItem item={item} />;
   return (
     <FlatList
-      contentContainerStyle={styles.root}
+      contentContainerStyle={styles.containerStyle}
+      style={{ flex: 1, flexGrow: 1 }}
       data={items}
       renderItem={renderItem}
       keyExtractor={(item, index) => String(item.id + index)}
@@ -23,8 +24,10 @@ const JobOrderList: FC<Props> = ({ items, isLoading }: Props) => {
 };
 
 const styles = StyleSheet.create({
+  containerStyle: {
+    // paddingBottom: createSpacing(4),
+  },
   root: {
-    paddingBottom: createSpacing(4),
     // flex: 1,
     // flexGrow: 1,
   },

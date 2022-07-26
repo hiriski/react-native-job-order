@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { InventoryScreen, OverviewScreen, SettingsScreen } from '../screens';
+import { HomeScreen, InventoryScreen, OverviewScreen, SettingsScreen } from '../screens';
 import { MAIN_STACK } from '@config/navigators';
 import { CustomerStackNavigator } from '@navigations/index';
 import JobOrderStackNavigator from '@navigations/job-order-stack-navigator';
@@ -20,7 +20,8 @@ const screenOptions = (route: RouteProp<any>) => {
 
 const BottomTabNavigator: FC = () => (
   <TabStack.Navigator initialRouteName={MAIN_STACK.OVERVIEW} screenOptions={({ route }) => screenOptions(route)}>
-    <TabStack.Screen name={MAIN_STACK.OVERVIEW} component={OverviewScreen} />
+    <TabStack.Screen name={MAIN_STACK.HOME} component={HomeScreen} />
+    {/* <TabStack.Screen name={MAIN_STACK.OVERVIEW} component={OverviewScreen} /> */}
     <TabStack.Screen name={MAIN_STACK.JOB_ORDER} component={JobOrderStackNavigator} />
     <TabStack.Screen name={MAIN_STACK.CUSTOMER} component={CustomerStackNavigator} />
     <TabStack.Screen name={MAIN_STACK.INVENTORY} component={InventoryScreen} />

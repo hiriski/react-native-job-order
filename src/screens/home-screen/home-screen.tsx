@@ -12,8 +12,8 @@ import OverviewEarning from '@components/overview/earning/earning';
 import { CardJobOrderStatusList } from '@components/overview';
 import OverviewGreeting from '@components/overview/greeting/greeting';
 import TestComponent from '@components/test-component';
-import { clearAsyncStorage } from '@utils/storage';
 import { Dimensions } from 'react-native';
+import { HomeGreeting } from './components';
 
 const BackgroundImage = require('@/assets/images/SL-043021-42650-28.jpg');
 
@@ -21,8 +21,6 @@ const OverviewScreen: FC = () => {
   // const navigation = useNavigation();
   const { palette } = useTheme();
   const navigation = useNavigation();
-  const { listTodo } = useAppSelector((state) => state.sample);
-  // const { todos } = listTodo;
 
   useEffect(() => {
     // clearAsyncStorage();
@@ -35,19 +33,10 @@ const OverviewScreen: FC = () => {
   return (
     <SafeAreaView style={StyleSheet.flatten([styles.root])}>
       <FocusAwareStatusBar translucent barStyle="light-content" backgroundColor="transparent" />
-      {/* <ScreenHeader
-        title="Overview"
-        containerStyle={{ backgroundColor: palette.primary.main }}
-        textStyle={{ color: palette.primary.contrastText }}
-      /> */}
-
-      <ImageBackground
-        source={require('../assets/images/SL-043021-42650-28.jpg')}
-        style={[StyleSheet.absoluteFillObject, styles.backgroundImage]}>
-        <OverviewGreeting />
-      </ImageBackground>
+      <ImageBackground source={BackgroundImage} style={[StyleSheet.absoluteFillObject, styles.backgroundImage]} />
+      <HomeGreeting />
       <CardJobOrderStatusList />
-      <TestComponent />
+      {/* <TestComponent /> */}
     </SafeAreaView>
   );
 };
@@ -62,7 +51,7 @@ const styles = StyleSheet.create({
     width,
     height: 160,
     justifyContent: 'center',
-    resizeMode: 'cover',
+    flex: 1,
   },
 });
 

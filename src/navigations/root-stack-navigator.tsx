@@ -11,6 +11,7 @@ const RootStack = createNativeStackNavigator();
 
 const RootStackNavigator: FC = () => {
   const { isAuthenticated } = useAppSelector((state) => state.auth);
+  // const isAuthenticated = false;
   const initialRouteName = isAuthenticated ? ROOT_STACK.MAIN : ROOT_STACK.AUTH;
   const { palette } = useTheme();
 

@@ -49,9 +49,9 @@ const CardJobOrderStatusList = () => {
   const renderItem: ListRenderItem<JoStatus> = ({ item }) => <CardJobOrderStatusItem item={item} />;
   return (
     <>
-      <RNView style={styles.titleContainer}>
+      {/* <RNView style={styles.titleContainer}>
         <SectionTitle spacingHorizontal={4} title="Job Order Status" />
-      </RNView>
+      </RNView> */}
       <FlatList
         contentContainerStyle={styles.flatList}
         style={{ marginBottom: createSpacing(4) }}

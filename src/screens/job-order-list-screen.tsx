@@ -1,20 +1,19 @@
 import React, { FC, useCallback, useEffect, useMemo, useRef } from 'react';
-import { StyleSheet, View as RNView } from 'react-native';
+import { StyleSheet, View as RNView, Platform } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
 import FocusAwareStatusBar from 'components/focus-aware-status-bar';
 // import Text from 'components/ui/text';
-import { MainLayout } from 'components/layouts';
+
 import { useAppSelector } from 'store/hook';
 import ScreenHeader from 'components/screen-header';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import useTheme from '@app/hooks/use-theme';
 import { useDispatch } from 'react-redux';
 import { fetchListJoRequest, setBottomSheetOptionsJo } from '@store/job-order/actions';
-import { JobOrderList } from '@components/job-order';
+import { JobOrderList, JobOrderOptions } from '@components/job-order';
 import { Jo } from '@app/interfaces/jo';
 import { joList } from '@app/fake-db/jo-list';
-import BottomSheet, { BottomSheetView, BottomSheetBackdrop } from '@gorhom/bottom-sheet';
-import { Typography } from '@components/ui';
+import BottomSheet, { BottomSheetBackdrop } from '@gorhom/bottom-sheet';
 import { useFocusEffect } from '@react-navigation/native';
 
 const JobOrderListScreen: FC = () => {
@@ -36,6 +35,10 @@ const JobOrderListScreen: FC = () => {
   // hooks
   const sheetRef = useRef<BottomSheet>(null);
 
+  const handleCloseBottomSheet = (): void => {
+    dispatch(setBottomSheetOptionsJo(false, undefined));
+  };
+
   // variables
   const snapPoints = useMemo(() => ['20%', '40%', '90%'], []);
 
@@ -43,12 +46,17 @@ const JobOrderListScreen: FC = () => {
   const handleSheetChange = useCallback((index) => {
     console.log('handleSheetChange', index);
   }, []);
+
   const handleSnapPress = useCallback((index) => {
     sheetRef.current?.snapToIndex(index);
+    if (index === 0) {
+      handleCloseBottomSheet();
+    }
   }, []);
 
   const handleClosePress = useCallback(() => {
     sheetRef.current?.close();
+    handleCloseBottomSheet();
   }, []);
 
   useEffect(() => {
@@ -65,8 +73,8 @@ const JobOrderListScreen: FC = () => {
       return () => {
         // Do something when the screen is unfocused
         // Useful for cleanup functions
-        console.log('call clean up');
-        dispatch(setBottomSheetOptionsJo(false, undefined));
+        // console.log('call clean up');
+
         handleClosePress();
       };
     }, []),
@@ -96,8 +104,8 @@ const JobOrderListScreen: FC = () => {
       />
       <ScreenHeader
         title="Job Order"
-        containerStyle={{ backgroundColor: palette.primary.main }}
-        textStyle={{ color: palette.primary.contrastText }}
+        containerStyle={Platform.OS !== 'ios' ? { backgroundColor: palette.primary.main } : {}}
+        textStyle={Platform.OS !== 'ios' ? { color: palette.primary.contrastText } : {}}
       />
       <JobOrderList items={joList as Jo[]} isLoading={isLoading} />
       <BottomSheet
@@ -106,9 +114,7 @@ const JobOrderListScreen: FC = () => {
         ref={sheetRef}
         snapPoints={snapPoints}
         onChange={handleSheetChange}>
-        <BottomSheetView style={{ alignItems: 'center', justifyContent: 'center' }}>
-          <Typography>Awesome 🔥</Typography>
-        </BottomSheetView>
+        <JobOrderOptions />
       </BottomSheet>
     </SafeAreaView>
   );
@@ -118,10 +124,6 @@ const styles = StyleSheet.create({
   root: {
     flex: 1,
     flexGrow: 1,
-  },
-  contentContainer: {
-    flex: 1,
-    alignItems: 'center',
   },
 });
 

@@ -13,7 +13,7 @@ type Inputs = LoginModel;
 
 const imageIcon = '../../assets/icons/icon-invoices.png';
 const defaultValues = {
-  email: 'cs@yopmail.com',
+  email: '',
   password: 'password',
 };
 

@@ -1,11 +1,11 @@
 import React, { FC, ReactNode } from 'react';
-import { StyleSheet, Text as RNText, TextStyle } from 'react-native';
+import { StyleSheet, Text as RNText, TextProps, TextStyle } from 'react-native';
 import useTheme from '@hooks/use-theme';
 import { Typography } from '@app/interfaces/theme';
 import { getTypographyFontSize } from '@utils/theme';
 import { getTextColor } from '@utils/theme/colors-utils';
 
-interface Props {
+interface Props extends TextProps {
   variant?: keyof Typography;
   color?: 'primary' | 'secondary' | 'disabled';
   children: ReactNode;
@@ -13,11 +13,13 @@ interface Props {
   fontSize?: number | undefined;
 }
 
-const Text: FC<Props> = ({ variant, color, style, fontSize, children }: Props) => {
+const Text: FC<Props> = (props) => {
+  const { variant, color, style, fontSize, children, ...rest } = props;
   const { palette } = useTheme();
 
   return (
     <RNText
+      {...rest}
       style={StyleSheet.flatten([
         styles.text,
         variant

@@ -14,7 +14,7 @@ export const AUTH_STACK = {
 };
 
 export const MAIN_STACK = {
-  OVERVIEW: 'Overview',
+  HOME: 'Home',
   JOB_ORDER: 'JobOrderStack',
   INVENTORY: 'Inventory',
   CUSTOMER: 'CustomerStack',

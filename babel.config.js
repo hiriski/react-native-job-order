@@ -16,6 +16,7 @@ module.exports = {
         root: ['./src'],
         extensions: ['.ios.js', '.android.js', '.js', '.jsx', '.ts', '.tsx', '.json'],
         alias: {
+          '@': path.resolve(__dirname, 'src'),
           '@app': path.resolve(__dirname, 'src'),
           '@config': path.resolve(__dirname, 'src/config'),
           '@components': path.resolve(__dirname, 'src/components'),

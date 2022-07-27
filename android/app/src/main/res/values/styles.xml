@@ -6,4 +6,11 @@
         <item name="android:editTextBackground">@drawable/rn_edit_text_material</item>
     </style>
 
+    <style name="SplashScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@color/default_background_light</item>
+        <item name="colorPrimaryDark">@color/default_background_light</item>
+        <item name="android:statusBarColor">@color/default_background_light</item>
+        <item name="android:navigationBarColor">@color/default_background_light</item>
+    </style>
+
 </resources>

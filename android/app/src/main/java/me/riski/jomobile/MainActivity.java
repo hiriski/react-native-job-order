@@ -2,6 +2,7 @@ package me.riski.jomobile;
 
 import com.facebook.react.ReactActivity;
 import android.os.Bundle;
+import org.devio.rn.splashscreen.SplashScreen; // required for react-native-splash-screen >= 0.3.1
 
 public class MainActivity extends ReactActivity {
 
@@ -14,8 +15,10 @@ public class MainActivity extends ReactActivity {
     return "JobOrderApp";
   }
 
-  @Override
+ @Override
   protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(null);
+    // SplashScreen.show(this);
+    // SplashScreen.show(this, R.style.SplashScreenTheme);
+    super.onCreate(savedInstanceState);
   }
 }

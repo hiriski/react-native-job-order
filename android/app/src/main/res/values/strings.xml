@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Job Order Mobile</string>
+    <string name="splash_screen_text">Job Order</string>
 </resources>

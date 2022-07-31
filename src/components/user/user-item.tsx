@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
-import { Avatar, MaterialIcon, Text, View } from '@components/ui';
+import { Avatar, MaterialIcon, Text, View } from '@/components/ui';
 import { StyleSheet, TouchableNativeFeedback, View as RNView, Pressable } from 'react-native';
-import { User } from '@app/interfaces/user';
-import { grey, lightBlue } from '@app/lib/theme/colors';
-import { colors500, createSpacing } from '@utils/theme';
+import { User } from '@/interfaces/user';
+import { grey, lightBlue } from '@/lib/theme/colors';
+import { colors500, createSpacing } from '@/utils/theme';
 import { useNavigation } from '@react-navigation/core';
-import { USER_STACK } from '@config/navigators';
-import useTheme from '@hooks/use-theme';
+import { USER_STACK } from '@/config/navigators';
+import useTheme from '@/hooks/use-theme';
 
 interface Props {
   user: User;

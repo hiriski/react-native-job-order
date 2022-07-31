@@ -12,7 +12,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import com.facebook.react.bridge.JSIModulePackage; // <- add
 import com.swmansion.reanimated.ReanimatedJSIModulePackage; // <- add
-import org.devio.rn.splashscreen.SplashScreenReactPackage;
 
 public class MainApplication extends Application implements ReactApplication {
 

@@ -1,8 +1,8 @@
 import React, { FC, memo } from 'react';
-import { View } from '@components/ui';
+import { View } from '@/components/ui';
 import { FlatList, ListRenderItem, StyleSheet } from 'react-native';
-import { User } from '@app/interfaces/user';
-import { UserItem } from '@components/user/index';
+import { User } from '@/interfaces/user';
+import { UserItem } from '@/components/user/index';
 
 interface Props {
   users: User[];

@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 import { StyleSheet } from 'react-native';
-import FocusAwareStatusBar from '@components/focus-aware-status-bar';
-import { MainLayout } from '@components/layouts';
+import FocusAwareStatusBar from '@/components/focus-aware-status-bar';
+import { MainLayout } from '@/components/layouts';
 import { useNavigation } from '@react-navigation/native';
-import Text from '@components/ui/text';
-import ScreenHeader from '@components/screen-header';
-import LoginForm from '@components/auth/login-form';
+import Text from '@/components/ui/text';
+import ScreenHeader from '@/components/screen-header';
+import LoginForm from '@/components/auth/login-form';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const backgroundColor = '#fbfbfb';

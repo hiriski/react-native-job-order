@@ -1,5 +1,5 @@
-import { Palette } from '@app/interfaces/theme';
-import { grey } from '@app/lib/theme/colors';
+import { Palette } from '@/interfaces/theme';
+import { grey } from '@/lib/theme/colors';
 
 /**
  * Palette light

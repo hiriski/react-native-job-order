@@ -1,4 +1,4 @@
-import useTheme from '@app/hooks/use-theme';
+import useTheme from '@/hooks/use-theme';
 import React, { FC } from 'react';
 import { IconProps } from 'react-native-vector-icons/Icon';
 import Icon from 'react-native-vector-icons/MaterialIcons';

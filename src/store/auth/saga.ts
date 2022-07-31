@@ -2,7 +2,7 @@ import type { SimpleEffect, SagaIterator } from '@redux-saga/types';
 import { AxiosError, AxiosResponse } from 'axios';
 import { SagaReturnType, put, call, takeLatest } from 'redux-saga/effects';
 import ActionTypes from './enum';
-import { httpResponseCreated, httpResponseOK, httpResponseUnprocessableEntity } from '@app/utils/http';
+import { httpResponseCreated, httpResponseOK, httpResponseUnprocessableEntity } from '@/utils/http';
 import {
   loginFailure,
   loginLoading,
@@ -16,10 +16,10 @@ import {
   revokeTokenSuccess,
 } from './actions';
 import AuthService from './service';
-import { LoginModel, RegisterModel } from '@app/interfaces/auth';
+import { LoginModel, RegisterModel } from '@/interfaces/auth';
 import { Alert, ToastAndroid } from 'react-native';
-import { removeToken, saveToken } from '@utils/token';
-import { clearAsyncStorage } from '@utils/storage';
+import { removeToken, saveToken } from '@/utils/token';
+import { clearAsyncStorage } from '@/utils/storage';
 
 // Type definitions of return of result.
 type TResponseLogin = SagaReturnType<typeof AuthService.login>;

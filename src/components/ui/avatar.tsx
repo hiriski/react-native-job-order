@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
-import View from '@components/ui/view';
+import View from '@/components/ui/view';
 import { StyleSheet, ViewProps } from 'react-native';
-import { Typography } from '@components/ui/index';
-import { blue } from '@app/lib/theme/colors';
+import { Typography } from '@/components/ui/index';
+import { blue } from '@/lib/theme/colors';
 
 interface Props extends ViewProps {
   size: number;

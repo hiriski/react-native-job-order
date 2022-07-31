@@ -1,5 +1,5 @@
-import { Palette } from '@app/interfaces/theme';
-import { createTheme } from '@config/theme';
+import { Palette } from '@/interfaces/theme';
+import { createTheme } from '@/config/theme';
 
 export const getBackgroundColorMenuItem = (
   color: keyof Pick<Palette, 'primary' | 'secondary'>,

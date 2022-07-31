@@ -3,7 +3,7 @@ import { SagaReturnType, call, put, takeEvery } from 'redux-saga/effects';
 import { fetchTodosFailure, fetchTodosLoading, fetchTodosSuccess } from './actions';
 import * as Actions from './constants';
 import TodoService from './service';
-import { httpResponseOK } from '@utils/http';
+import { httpResponseOK } from '@/utils/http';
 
 type APIResponseTodos = SagaReturnType<typeof TodoService.findAll>;
 

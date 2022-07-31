@@ -4,7 +4,7 @@
  * ------------
  */
 
-import { Palette, Shape, Typography } from '@app/interfaces/theme';
+import { Palette, Shape, Typography } from '@/interfaces/theme';
 
 /**
  * Base palettes

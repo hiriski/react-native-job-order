@@ -1,10 +1,10 @@
-import useTheme from '@app/hooks/use-theme';
-import { grey } from '@app/lib/theme/colors';
+import useTheme from '@/hooks/use-theme';
+import { grey } from '@/lib/theme/colors';
 import React, { FC, ReactElement, ReactNode, useMemo } from 'react';
 import { StyleSheet, View, TouchableNativeFeedback, Text, Switch } from 'react-native';
-import { createSpacing } from '@utils/theme';
+import { createSpacing } from '@/utils/theme';
 
-// import { PaletteMode } from '@app/interfaces/theme';
+// import { PaletteMode } from '@/interfaces/theme';
 
 interface Props {
   title?: string;

@@ -1,12 +1,12 @@
 import React, { FC, useEffect } from 'react';
 import { View, StyleSheet, SafeAreaView, Dimensions, Image } from 'react-native';
-import FocusAwareStatusBar from '@components/focus-aware-status-bar';
-import { MainLayout } from '@components/layouts';
+import FocusAwareStatusBar from '@/components/focus-aware-status-bar';
+import { MainLayout } from '@/components/layouts';
 import { useNavigation } from '@react-navigation/native';
-import Text from '@components/ui/text';
-import ScreenHeader from '@components/screen-header';
-import { amber } from '@app/lib/theme/colors';
-import LoginForm from '@components/auth/login-form';
+import Text from '@/components/ui/text';
+import ScreenHeader from '@/components/screen-header';
+import { amber } from '@/lib/theme/colors';
+import LoginForm from '@/components/auth/login-form';
 import { useDispatch } from 'react-redux';
 
 const backgroundColor = '#fbfbfb';

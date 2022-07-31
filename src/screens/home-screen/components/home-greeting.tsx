@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Dimensions, Image, StyleSheet, TouchableNativeFeedback, View } from 'react-native';
-import { createSpacing } from '@utils/theme';
-import { grey } from '@app/lib/theme/colors';
-import Ionicons from '@components/ui/icon-ionicons';
-import { Typography } from '@components/ui';
+import { createSpacing } from '@/utils/theme';
+import { grey } from '@/lib/theme/colors';
+import Ionicons from '@/components/ui/icon-ionicons';
+import { Typography } from '@/components/ui';
 import { useNavigation } from '@react-navigation/core';
-import { ROOT_STACK } from '@config/navigators';
-import useTheme from '@app/hooks/use-theme';
-import { useAppSelector } from '@app/store/hook';
+import { ROOT_STACK } from '@/config/navigators';
+import useTheme from '@/hooks/use-theme';
+import { useAppSelector } from '@/store/hook';
 
 const SampleAvatar = require('@/assets/images/avatars/24.jpg');
 
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   avatar: {
     aspectRatio: 1,
     borderRadius: AVATAR_SIZE,
-    heightL: AVATAR_SIZE,
+    height: AVATAR_SIZE,
     width: AVATAR_SIZE,
   },
   touchableRoot: {

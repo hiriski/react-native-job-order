@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 import { StyleSheet, TextStyle } from 'react-native';
 
 import { TextField, FilledTextField, OutlinedTextField, TextFieldProps } from 'rn-material-ui-textfield';
-import { createTheme } from '@config/theme';
-import useTheme from '@hooks/use-theme';
+import { createTheme } from '@/config/theme';
+import useTheme from '@/hooks/use-theme';
 
 interface Props extends TextFieldProps {
   variant: 'standard' | 'filled' | 'outlined';

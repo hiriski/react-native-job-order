@@ -1,10 +1,10 @@
 import React, { FC, useEffect } from 'react';
 import { View, StyleSheet, SafeAreaView, Dimensions, Image } from 'react-native';
-import FocusAwareStatusBar from '@components/focus-aware-status-bar';
+import FocusAwareStatusBar from '@/components/focus-aware-status-bar';
 import { useNavigation } from '@react-navigation/native';
-import Text from '@components/ui/text';
-import { blueGrey, grey, lightBlue} from '@app/lib/theme/colors';
-import { Button } from '@components/ui';
+import Text from '@/components/ui/text';
+import { blueGrey, grey, lightBlue } from '@/lib/theme/colors';
+import { Button } from '@/components/ui';
 
 const backgroundColor = blueGrey[200];
 
@@ -12,8 +12,6 @@ const AVATAR_SIZE = 90;
 
 const FingerPrintScreen: FC = () => {
   const navigation = useNavigation();
-
-
 
   return (
     <SafeAreaView style={styles.root}>

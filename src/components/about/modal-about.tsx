@@ -9,11 +9,11 @@ import {
   TouchableOpacity,
   Linking,
 } from 'react-native';
-import { MaterialIcon, IonIcons, Typography, View } from '@components/ui';
-import useTheme from '@hooks/use-theme';
-import { createSpacing } from '@utils/theme';
-import { blueGrey, grey, blue } from '@app/lib/theme/colors';
-import { createTheme } from '@config/theme';
+import { MaterialIcon, IonIcons, Typography, View } from '@/components/ui';
+import useTheme from '@/hooks/use-theme';
+import { createSpacing } from '@/utils/theme';
+import { blueGrey, grey, blue } from '@/lib/theme/colors';
+import { createTheme } from '@/config/theme';
 
 interface Props {
   visible: boolean;

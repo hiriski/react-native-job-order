@@ -1,6 +1,6 @@
-import { LaravelPaginationLinks, LaravelPaginationMeta } from '@app/interfaces/laravel-pagination';
-import { RolePermission } from '@app/interfaces/role';
-import { User } from '@app/interfaces/user';
+import { LaravelPaginationLinks, LaravelPaginationMeta } from '@/interfaces/laravel-pagination';
+import { RolePermission } from '@/interfaces/role';
+import { User } from '@/interfaces/user';
 
 import { UserAction } from './actions';
 import ActionTypes from './enum';

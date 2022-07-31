@@ -1,6 +1,6 @@
 import React, { FC, ReactNode, useState } from 'react';
 import { Text, View, StyleSheet, TouchableNativeFeedback } from 'react-native';
-import useTheme from '@hooks/use-theme';
+import useTheme from '@/hooks/use-theme';
 
 interface Props {
   children: ReactNode;

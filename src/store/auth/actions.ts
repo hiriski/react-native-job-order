@@ -1,8 +1,8 @@
 import { AnyAction } from 'redux';
 import Types from './enum';
-import { User } from '@app/interfaces/user';
-import { LoginModel, LoginWithSocialAccountModel, RegisterModel } from '@app/interfaces/auth';
-import { AuthSocialProvider } from '@app/enum/social-provider';
+import { User } from '@/interfaces/user';
+import { LoginModel, LoginWithSocialAccountModel, RegisterModel } from '@/interfaces/auth';
+import { AuthSocialProvider } from '@/enum/social-provider';
 
 // Actions definition
 interface LoginRequested {

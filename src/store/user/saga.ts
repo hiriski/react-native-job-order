@@ -1,5 +1,5 @@
 import type { Effect, SagaIterator, SimpleEffect } from '@redux-saga/types';
-import { httpResponseCreated, httpResponseOK } from '@app/utils/http';
+import { httpResponseCreated, httpResponseOK } from '@/utils/http';
 import { call, put, SagaReturnType, takeEvery, takeLatest, select } from 'redux-saga/effects';
 
 import {
@@ -22,10 +22,10 @@ import {
 } from './actions';
 import ActionTypes from './enum';
 import UserAPI from './service';
-import { UserModel } from '@app/interfaces/user';
-import { getLastFetchedListUser, getRootUserState } from '@store/user/selectors';
+import { UserModel } from '@/interfaces/user';
+import { getLastFetchedListUser, getRootUserState } from '@/store/user/selectors';
 import moment from 'moment';
-import { shouldItBeFetch } from '@utils/common';
+import { shouldItBeFetch } from '@/utils/common';
 
 // Type definitions of return of result.
 type APIResponseUserList = SagaReturnType<typeof UserAPI.findAll>;

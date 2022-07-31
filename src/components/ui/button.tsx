@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { StyleSheet, Text, Pressable, PressableProps, View, ActivityIndicator } from 'react-native';
-import { getButtonColor, getButtonSize } from '@utils/theme/button';
-import { createTheme } from '@config/theme';
-import { ButtonSize, Palette } from '@app/interfaces/theme';
-import useTheme from '@hooks/use-theme';
+import { getButtonColor, getButtonSize } from '@/utils/theme/button';
+import { createTheme } from '@/config/theme';
+import { ButtonSize, Palette } from '@/interfaces/theme';
+import useTheme from '@/hooks/use-theme';
 
 type ButtonColor = keyof Pick<Palette, 'primary' | 'secondary'>;
 type ButtonVariant = 'contained' | 'outlined' | 'text';

@@ -7,12 +7,12 @@ import FocusAwareStatusBar from 'components/focus-aware-status-bar';
 import { useAppSelector } from 'store/hook';
 import ScreenHeader from 'components/screen-header';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import useTheme from '@app/hooks/use-theme';
+import useTheme from '@/hooks/use-theme';
 import { useDispatch } from 'react-redux';
-import { fetchListJoRequest, setBottomSheetOptionsJo } from '@store/job-order/actions';
-import { JobOrderList, JobOrderOptions } from '@components/job-order';
-import { Jo } from '@app/interfaces/jo';
-import { joList } from '@app/fake-db/jo-list';
+import { fetchListJoRequest, setBottomSheetOptionsJo } from '@/store/job-order/actions';
+import { JobOrderList, JobOrderOptions } from '@/components/job-order';
+import { Jo } from '@/interfaces/jo';
+import { joList } from '@/fake-db/jo-list';
 import BottomSheet, { BottomSheetBackdrop } from '@gorhom/bottom-sheet';
 import { useFocusEffect } from '@react-navigation/native';
 

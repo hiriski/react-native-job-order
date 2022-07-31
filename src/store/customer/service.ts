@@ -1,6 +1,6 @@
-import api from '@utils/http';
+import api from '@/utils/http';
 import { AxiosResponse } from 'axios';
-import { Customer, CustomerModel, ResponseListCustomer } from '@app/interfaces/customer';
+import { Customer, CustomerModel, ResponseListCustomer } from '@/interfaces/customer';
 
 const CustomerService = {
   findAll: async (params?: Record<string, string>): Promise<AxiosResponse<ResponseListCustomer>> => {

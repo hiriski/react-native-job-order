@@ -1,5 +1,5 @@
 import { User } from './user';
-import { AuthSocialProvider } from '@app/enum/social-provider';
+import { AuthSocialProvider } from '@/enum/social-provider';
 
 export interface ResponseLoginUser {
   success: boolean;

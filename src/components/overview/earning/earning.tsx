@@ -1,9 +1,9 @@
 import React, { FC, ReactElement, ReactNode } from 'react';
-import { View, Typography, MaterialIcon } from '@components/ui';
+import { View, Typography, MaterialIcon } from '@/components/ui';
 import { StyleSheet } from 'react-native';
-import { createSpacing } from '@utils/theme';
-import useTheme from '@hooks/use-theme';
-import { shape } from '@config/theme/base';
+import { createSpacing } from '@/utils/theme';
+import useTheme from '@/hooks/use-theme';
+import { shape } from '@/config/theme/base';
 
 interface CardProps {
   title: string;

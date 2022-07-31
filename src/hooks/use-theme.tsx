@@ -1,4 +1,4 @@
-import { Theme } from '@app/interfaces/theme';
+import { Theme } from '@/interfaces/theme';
 import { useContext } from 'react';
 import { themeContext } from '../contexts';
 

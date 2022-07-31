@@ -1,7 +1,7 @@
 import React, { useCallback, useRef, useMemo } from 'react';
 import { StyleSheet, View, Text, Button } from 'react-native';
 import BottomSheet, { BottomSheetView } from '@gorhom/bottom-sheet';
-import CustomBackdrop from '@components/bottom-sheets/custom-backdrop';
+import CustomBackdrop from '@/components/bottom-sheets/custom-backdrop';
 
 const BottomSheetViewComponent = () => {
   // hooks

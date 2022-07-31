@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 import { View as RNView, StyleSheet, FlatList, ListRenderItem, Pressable } from 'react-native';
-import { Typography } from '@components/ui';
-import SectionTitle from '@components/secton-title/section-title';
-import { createSpacing } from '@utils/theme';
-import Ionicons from '@components/ui/icon-ionicons';
-import { grey } from '@app/lib/theme/colors';
+import { Typography } from '@/components/ui';
+import SectionTitle from '@/components/secton-title/section-title';
+import { createSpacing } from '@/utils/theme';
+import Ionicons from '@/components/ui/icon-ionicons';
+import { grey } from '@/lib/theme/colors';
 
 interface Props {
   item: any;

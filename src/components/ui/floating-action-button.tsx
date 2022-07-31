@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Text, Image, StyleSheet, Pressable, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { createTheme } from '@config/theme';
-import useTheme from '@hooks/use-theme';
+import { createTheme } from '@/config/theme';
+import useTheme from '@/hooks/use-theme';
 
 const FloatingActionButton = () => {
   const { palette } = useTheme();

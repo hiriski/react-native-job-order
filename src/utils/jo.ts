@@ -1,5 +1,5 @@
-import { ColorStatusJo } from '@app/interfaces/jo';
-import { createTheme } from '@config/theme';
+import { ColorStatusJo } from '@/interfaces/jo';
+import { createTheme } from '@/config/theme';
 
 const { palette } = createTheme();
 

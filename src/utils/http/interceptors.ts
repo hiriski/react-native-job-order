@@ -1,7 +1,7 @@
 import { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosRequestHeaders, AxiosResponse } from 'axios';
 
 import { httpResponseUnauthorized } from '.';
-import { getToken } from '@utils/token';
+import { getToken } from '@/utils/token';
 
 const onRequest = async (config: AxiosRequestConfig): Promise<AxiosRequestConfig> => {
   const accessToken = await getToken();

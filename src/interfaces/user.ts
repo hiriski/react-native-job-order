@@ -1,5 +1,5 @@
 import { LaravelPaginationLinks, LaravelPaginationMeta } from './laravel-pagination';
-import { Role } from '@app/interfaces/role';
+import { Role } from '@/interfaces/role';
 
 export interface User {
   id: number;

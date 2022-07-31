@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { StatusBar, StatusBarProps } from 'react-native';
 import { useIsFocused } from '@react-navigation/native';
-import useTheme from '@app/hooks/use-theme';
+import useTheme from '@/hooks/use-theme';
 
 const FocusAwareStatusBar: FC<StatusBarProps> = (props: StatusBarProps) => {
   const { palette } = useTheme();

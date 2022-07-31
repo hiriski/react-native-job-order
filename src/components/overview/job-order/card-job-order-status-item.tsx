@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 import { View as RNView, StyleSheet, Pressable, Dimensions } from 'react-native';
-import { Typography } from '@components/ui';
+import { Typography } from '@/components/ui';
 import type { JoStatus } from './card-job-order-status-list';
-import { createSpacing } from '@utils/theme';
-import { createTheme } from '@config/theme';
-import Ionicons from '@components/ui/icon-ionicons';
-import useTheme from '@app/hooks/use-theme';
+import { createSpacing } from '@/utils/theme';
+import { createTheme } from '@/config/theme';
+import Ionicons from '@/components/ui/icon-ionicons';
+import useTheme from '@/hooks/use-theme';
 
 interface Props {
   item: JoStatus;
@@ -45,14 +45,14 @@ const CardJobOrderStatusItem: FC<Props> = ({ item }: Props) => {
 const { shape, palette } = createTheme();
 const styles = StyleSheet.create({
   root: {
-    minWidth: width / 2 - createSpacing(6),
+    minWidth: width / 2 - createSpacing(8),
     marginRight: createSpacing(3),
-    paddingHorizontal: createSpacing(4),
-    paddingTop: createSpacing(4),
+    paddingHorizontal: createSpacing(3),
+    paddingTop: createSpacing(3),
     borderRadius: shape.borderRadius,
   },
   container: {
-    minHeight: 98,
+    minHeight: 90,
     flexDirection: 'row',
     alignItems: 'flex-start',
     justifyContent: 'space-between',

@@ -1,7 +1,7 @@
-import { LaravelPaginationLinks, LaravelPaginationMeta } from '@app/interfaces/laravel-pagination';
+import { LaravelPaginationLinks, LaravelPaginationMeta } from '@/interfaces/laravel-pagination';
 import { Image } from './image';
 import { User } from './user';
-import { Customer, CustomerModel } from '@app/interfaces/customer';
+import { Customer, CustomerModel } from '@/interfaces/customer';
 
 export type JoUser = Partial<User>;
 

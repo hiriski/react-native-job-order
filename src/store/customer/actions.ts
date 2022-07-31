@@ -1,7 +1,7 @@
 import { AnyAction } from 'redux';
 
 import ActionTypes from './enum';
-import { Customer, CustomerModel, ResponseListCustomer } from '@app/interfaces/customer';
+import { Customer, CustomerModel, ResponseListCustomer } from '@/interfaces/customer';
 
 // Actions definiition
 

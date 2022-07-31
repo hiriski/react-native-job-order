@@ -1,6 +1,6 @@
 import React, { FC, ReactNode } from 'react';
 import { StyleSheet } from 'react-native';
-import { View } from '@components/ui';
+import { View } from '@/components/ui';
 
 interface Props {
   children: ReactNode;

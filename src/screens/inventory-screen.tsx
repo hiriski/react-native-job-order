@@ -3,8 +3,8 @@ import { View, StyleSheet, SafeAreaView, Button } from 'react-native';
 import FocusAwareStatusBar from 'components/focus-aware-status-bar';
 import { MainLayout } from 'components/layouts';
 import { useNavigation } from '@react-navigation/native';
-import Text from '@components/ui/text';
-import { AUTH_STACK, ROOT_STACK } from '@config/navigators';
+import Text from '@/components/ui/text';
+import { AUTH_STACK, ROOT_STACK } from '@/config/navigators';
 
 const backgroundColor = '#fbfbfb';
 

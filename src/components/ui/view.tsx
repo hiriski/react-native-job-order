@@ -1,4 +1,4 @@
-import useTheme from '@app/hooks/use-theme';
+import useTheme from '@/hooks/use-theme';
 import React, { FC } from 'react';
 import { View as RNView, ViewProps } from 'react-native';
 

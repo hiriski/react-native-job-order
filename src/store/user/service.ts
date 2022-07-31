@@ -1,5 +1,5 @@
-import { UserModel, ResponseListUser, User } from '@app/interfaces/user';
-import api from '@app/utils/http';
+import { UserModel, ResponseListUser, User } from '@/interfaces/user';
+import api from '@/utils/http';
 import { AxiosResponse } from 'axios';
 
 const UserService = {

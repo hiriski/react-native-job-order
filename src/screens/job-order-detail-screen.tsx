@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, View } from '@components/ui';
+import { Typography, View } from '@/components/ui';
 import { ImageBackground, StatusBar, StyleSheet, ScrollView } from 'react-native';
 
 const image = require('../assets/images/mika-baumeister-gjPSrg4xSNM-unsplash.jpg');

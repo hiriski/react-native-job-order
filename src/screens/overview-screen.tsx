@@ -7,12 +7,12 @@ import { MainLayout } from 'components/layouts';
 import { useAppSelector } from 'store/hook';
 import ScreenHeader from 'components/screen-header';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import useTheme from '@app/hooks/use-theme';
-import OverviewEarning from '@components/overview/earning/earning';
-import { CardJobOrderStatusList } from '@components/overview';
-import OverviewGreeting from '@components/overview/greeting/greeting';
-import TestComponent from '@components/test-component';
-import { clearAsyncStorage } from '@utils/storage';
+import useTheme from '@/hooks/use-theme';
+import OverviewEarning from '@/components/overview/earning/earning';
+import { CardJobOrderStatusList } from '@/components/overview';
+import OverviewGreeting from '@/components/overview/greeting/greeting';
+import TestComponent from '@/components/test-component';
+import { clearAsyncStorage } from '@/utils/storage';
 import { Dimensions } from 'react-native';
 
 const BackgroundImage = require('@/assets/images/SL-043021-42650-28.jpg');

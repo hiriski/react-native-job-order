@@ -1,8 +1,8 @@
 import { AnyAction } from 'redux';
 
 import ActionTypes from './enum';
-import { RolePermission } from '@app/interfaces/role';
-import { ResponseListUser, User, UserModel } from '@app/interfaces/user';
+import { RolePermission } from '@/interfaces/role';
+import { ResponseListUser, User, UserModel } from '@/interfaces/user';
 
 // Actions definiition
 

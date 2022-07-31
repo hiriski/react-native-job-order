@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
 import { View, StyleSheet, Image, ScrollView, Dimensions } from 'react-native';
-import { Button, MaterialTextField, Text } from '@components/ui';
+import { Button, MaterialTextField, Text } from '@/components/ui';
 import { useDispatch } from 'react-redux';
-import { loginRequest } from '@store/auth/actions';
+import { loginRequest } from '@/store/auth/actions';
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 // import { joiResolver } from '@hookform/resolvers/joi';
 // import Joi from 'react-native-joi';
-import { LoginModel } from '@app/interfaces/auth';
-import { useAppSelector } from '@app/store/hook';
+import { LoginModel } from '@/interfaces/auth';
+import { useAppSelector } from '@/store/hook';
 
 type Inputs = LoginModel;
 

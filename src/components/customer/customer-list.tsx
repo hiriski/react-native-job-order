@@ -1,7 +1,7 @@
 import React, { FC, memo } from 'react';
 import { FlatList, ListRenderItem, StyleSheet } from 'react-native';
-import { Customer } from '@app/interfaces/customer';
-import { CustomerItem } from '@components/customer/index';
+import { Customer } from '@/interfaces/customer';
+import { CustomerItem } from '@/components/customer/index';
 
 interface Props {
   customers: Customer[];

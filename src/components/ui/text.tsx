@@ -1,9 +1,9 @@
 import React, { FC, ReactNode } from 'react';
 import { StyleSheet, Text as RNText, TextProps, TextStyle } from 'react-native';
-import useTheme from '@hooks/use-theme';
-import { Typography } from '@app/interfaces/theme';
-import { getTypographyFontSize } from '@utils/theme';
-import { getTextColor } from '@utils/theme/colors-utils';
+import useTheme from '@/hooks/use-theme';
+import { Typography } from '@/interfaces/theme';
+import { getTypographyFontSize } from '@/utils/theme';
+import { getTextColor } from '@/utils/theme/colors-utils';
 
 interface Props extends TextProps {
   variant?: keyof Typography;

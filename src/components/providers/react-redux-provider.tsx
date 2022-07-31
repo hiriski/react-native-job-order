@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { store, persistor } from '../../store/config-store';
+import { paletteLight } from '@/config/theme/light';
 
 const Loading = () => {
   return (
@@ -13,7 +14,7 @@ const Loading = () => {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#9c949f',
+        backgroundColor: paletteLight.background.default,
       }}>
       <ActivityIndicator size="large" />
     </View>

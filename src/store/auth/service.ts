@@ -1,7 +1,7 @@
 import { AxiosResponse } from 'axios';
 import api from '../../utils/http';
-import { LoginModel, LoginWithSocialAccountModel, RegisterModel, ResponseLoginUser } from '@app/interfaces/auth';
-import { User } from '@app/interfaces/user';
+import { LoginModel, LoginWithSocialAccountModel, RegisterModel, ResponseLoginUser } from '@/interfaces/auth';
+import { User } from '@/interfaces/user';
 
 const AuthService = {
   register: async (body: RegisterModel): Promise<AxiosResponse<ResponseLoginUser>> => {

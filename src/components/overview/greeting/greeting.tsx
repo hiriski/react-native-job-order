@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Image, StyleSheet, TouchableNativeFeedback, View } from 'react-native';
-import { createSpacing } from '@utils/theme';
-import { grey } from '@app/lib/theme/colors';
-import Ionicons from '@components/ui/icon-ionicons';
-import { Typography } from '@components/ui';
+import { createSpacing } from '@/utils/theme';
+import { grey } from '@/lib/theme/colors';
+import Ionicons from '@/components/ui/icon-ionicons';
+import { Typography } from '@/components/ui';
 import { useNavigation } from '@react-navigation/core';
-import { ROOT_STACK } from '@config/navigators';
+import { ROOT_STACK } from '@/config/navigators';
 
 const OverviewGreeting = () => {
   const navigation = useNavigation();

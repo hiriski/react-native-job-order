@@ -1,4 +1,4 @@
-import { PaletteMode } from '@app/interfaces/theme';
+import { PaletteMode } from '@/interfaces/theme';
 import { CommonAction } from './actions';
 import ActionTypes from './enum';
 

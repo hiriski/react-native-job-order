@@ -1,5 +1,5 @@
-import { Customer } from '@app/interfaces/customer';
-import { LaravelPaginationLinks, LaravelPaginationMeta } from '@app/interfaces/laravel-pagination';
+import { Customer } from '@/interfaces/customer';
+import { LaravelPaginationLinks, LaravelPaginationMeta } from '@/interfaces/laravel-pagination';
 
 import { CustomerAction } from './actions';
 import ActionTypes from './enum';

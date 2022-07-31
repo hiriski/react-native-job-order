@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Avatar, MaterialIcon, Text, Typography } from '@components/ui';
+import { Avatar, MaterialIcon, Text, Typography } from '@/components/ui';
 import {
   StyleSheet,
   TouchableNativeFeedback,
@@ -8,19 +8,19 @@ import {
   Alert,
   TouchableWithoutFeedback,
 } from 'react-native';
-import { grey } from '@app/lib/theme/colors';
-import { colors500, createSpacing } from '@utils/theme';
+import { grey } from '@/lib/theme/colors';
+import { colors500, createSpacing } from '@/utils/theme';
 import { useNavigation } from '@react-navigation/core';
-import { JOB_ORDER_STACK } from '@config/navigators';
-import useTheme from '@hooks/use-theme';
-import { Jo } from '@app/interfaces/jo';
-import { createTheme } from '@config/theme';
-import { createColorProductionStatusJo } from '@utils/jo';
-import { convertToRupiah } from '@utils/currency';
+import { JOB_ORDER_STACK } from '@/config/navigators';
+import useTheme from '@/hooks/use-theme';
+import { Jo } from '@/interfaces/jo';
+import { createTheme } from '@/config/theme';
+import { createColorProductionStatusJo } from '@/utils/jo';
+import { convertToRupiah } from '@/utils/currency';
 import moment from 'moment';
-import { DB_FORMAT_TIMESTAMPS } from '@app/constants';
+import { DB_FORMAT_TIMESTAMPS } from '@/constants';
 import { useDispatch } from 'react-redux';
-import { setBottomSheetOptionsJo } from '@store/job-order/actions';
+import { setBottomSheetOptionsJo } from '@/store/job-order/actions';
 
 interface Props {
   item: Jo;

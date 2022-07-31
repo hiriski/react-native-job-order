@@ -14,7 +14,7 @@ import {
   red,
   teal,
   yellow,
-} from '@app/lib/theme/colors';
+} from '@/lib/theme/colors';
 
 export const lightColors = [
   yellow[50],

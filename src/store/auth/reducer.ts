@@ -1,7 +1,7 @@
 import Types from './enum';
 import { AuthAction } from './actions';
-import { User } from '@app/interfaces/user';
-import { AuthSocialProvider } from '@app/enum/social-provider';
+import { User } from '@/interfaces/user';
+import { AuthSocialProvider } from '@/enum/social-provider';
 
 export interface AuthState {
   user?: User | null;

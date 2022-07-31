@@ -1,7 +1,7 @@
 import React from 'react';
-import { Typography, View } from '@components/ui';
+import { Typography, View } from '@/components/ui';
 import { Image, StyleSheet } from 'react-native';
-import { createSpacing } from '@utils/theme';
+import { createSpacing } from '@/utils/theme';
 
 const image = require('../assets/icons/bill.png');
 

@@ -1,5 +1,5 @@
-import { PaletteMode, PaletteText } from '@app/interfaces/theme';
-import { createTheme } from '@config/theme';
+import { PaletteMode, PaletteText } from '@/interfaces/theme';
+import { createTheme } from '@/config/theme';
 
 export const getTextColor = (color: keyof PaletteText, mode: PaletteMode): string => {
   const { palette } = createTheme(mode);

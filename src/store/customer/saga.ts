@@ -1,5 +1,5 @@
 import type { Effect, SagaIterator, SimpleEffect } from '@redux-saga/types';
-import { httpResponseCreated, httpResponseOK } from '@app/utils/http';
+import { httpResponseCreated, httpResponseOK } from '@/utils/http';
 import { SagaReturnType, call, put, takeEvery, takeLatest } from 'redux-saga/effects';
 
 import {
@@ -19,7 +19,7 @@ import {
 } from './actions';
 import ActionTypes from './enum';
 import CustomerAPI from './service';
-import { CustomerModel } from '@app/interfaces/customer';
+import { CustomerModel } from '@/interfaces/customer';
 
 // Type definitions of return of result.
 type APIResponseCustomerList = SagaReturnType<typeof CustomerAPI.findAll>;

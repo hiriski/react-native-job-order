@@ -7,11 +7,11 @@ import { MainLayout } from 'components/layouts';
 import { useAppSelector } from 'store/hook';
 import ScreenHeader from 'components/screen-header';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import useTheme from '@app/hooks/use-theme';
-import OverviewEarning from '@components/overview/earning/earning';
-import { CardJobOrderStatusList } from '@components/overview';
-import OverviewGreeting from '@components/overview/greeting/greeting';
-import TestComponent from '@components/test-component';
+import useTheme from '@/hooks/use-theme';
+import OverviewEarning from '@/components/overview/earning/earning';
+import { CardJobOrderStatusList } from '@/components/overview';
+import OverviewGreeting from '@/components/overview/greeting/greeting';
+import TestComponent from '@/components/test-component';
 import { Dimensions } from 'react-native';
 import { HomeGreeting } from './components';
 
@@ -32,7 +32,7 @@ const OverviewScreen: FC = () => {
 
   return (
     <SafeAreaView style={StyleSheet.flatten([styles.root])}>
-      <FocusAwareStatusBar translucent barStyle="light-content" backgroundColor="transparent" />
+      {/* <FocusAwareStatusBar translucent barStyle="light-content" backgroundColor="transparent" /> */}
       <ImageBackground source={BackgroundImage} style={[StyleSheet.absoluteFillObject, styles.backgroundImage]} />
       <HomeGreeting />
       <CardJobOrderStatusList />

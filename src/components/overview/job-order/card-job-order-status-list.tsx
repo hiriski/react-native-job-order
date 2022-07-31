@@ -1,9 +1,9 @@
 import React from 'react';
 import { View as RNView, StyleSheet, FlatList, ListRenderItem } from 'react-native';
 import CardJobOrderStatusItem from './card-job-order-status-item';
-import { Typography } from '@components/ui';
-import SectionTitle from '@components/secton-title/section-title';
-import { createSpacing } from '@utils/theme';
+import { Typography } from '@/components/ui';
+import SectionTitle from '@/components/secton-title/section-title';
+import { createSpacing } from '@/utils/theme';
 
 export interface JoStatus {
   id: number;
@@ -48,21 +48,16 @@ const cardList: JoStatus[] = [
 const CardJobOrderStatusList = () => {
   const renderItem: ListRenderItem<JoStatus> = ({ item }) => <CardJobOrderStatusItem item={item} />;
   return (
-    <>
-      {/* <RNView style={styles.titleContainer}>
-        <SectionTitle spacingHorizontal={4} title="Job Order Status" />
-      </RNView> */}
-      <FlatList
-        contentContainerStyle={styles.flatList}
-        style={{ marginBottom: createSpacing(4) }}
-        horizontal={true}
-        showsHorizontalScrollIndicator={false}
-        data={cardList}
-        renderItem={renderItem}
-        keyExtractor={(item) => String(item.id)}
-        bounces={false} // ios only
-      />
-    </>
+    <FlatList
+      contentContainerStyle={styles.flatList}
+      style={{ marginBottom: createSpacing(3) }}
+      horizontal={true}
+      showsHorizontalScrollIndicator={false}
+      data={cardList}
+      renderItem={renderItem}
+      keyExtractor={(item) => String(item.id)}
+      bounces={false} // ios only
+    />
   );
 };
 

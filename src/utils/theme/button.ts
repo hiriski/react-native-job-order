@@ -1,5 +1,5 @@
-import { ButtonSize, Palette } from '@app/interfaces/theme';
-import { createTheme } from '@config/theme';
+import { ButtonSize, Palette } from '@/interfaces/theme';
+import { createTheme } from '@/config/theme';
 
 export const getButtonColor = (color: keyof Pick<Palette, 'primary' | 'secondary'>, pressed: boolean): string => {
   const { palette } = createTheme();

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Text, View, StyleSheet, TouchableNativeFeedback, StatusBar } from 'react-native';
-import { palettes } from '@config/theme/light';
+import { palettes } from '@/config/theme/light';
 
 const TouchableNativeFeedbackComponent = () => {
   const [rippleColor, setRippleColor] = useState(palettes.primary.main);

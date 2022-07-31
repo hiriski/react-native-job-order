@@ -1,5 +1,5 @@
-import useTheme from '@app/hooks/use-theme';
-import { grey } from '@app/lib/theme/colors';
+import useTheme from '@/hooks/use-theme';
+import { grey } from '@/lib/theme/colors';
 import { Typography } from 'components/ui';
 import React, { FC, ReactNode, useMemo } from 'react';
 import {
@@ -12,8 +12,8 @@ import {
   TextStyle,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { createSpacing } from '@utils/theme';
-import { createTheme } from '@config/theme';
+import { createSpacing } from '@/utils/theme';
+import { createTheme } from '@/config/theme';
 
 interface Props {
   title?: string;

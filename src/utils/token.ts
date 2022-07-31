@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { ACCESS_TOKEN } from '@app/constants';
+import { ACCESS_TOKEN } from '@/constants';
 
 export const saveToken = async (token: string): Promise<void> => {
   try {

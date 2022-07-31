@@ -1,5 +1,5 @@
-import { Typography } from '@app/interfaces/theme';
-import { createTheme } from '@config/theme';
+import { Typography } from '@/interfaces/theme';
+import { createTheme } from '@/config/theme';
 import { Platform } from 'react-native';
 
 interface TypographyFontSize {

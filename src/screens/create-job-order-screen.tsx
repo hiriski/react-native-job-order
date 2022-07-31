@@ -1,7 +1,7 @@
 import React from 'react';
-import { Typography, View } from '@components/ui';
+import { Typography, View } from '@/components/ui';
 import { StyleSheet } from 'react-native';
-import { createSpacing } from '@utils/theme';
+import { createSpacing } from '@/utils/theme';
 
 const CreateJobOrderScreen = () => {
   return (

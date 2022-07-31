@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { View, StyleSheet, Text, SafeAreaView, Button } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
 import FocusAwareStatusBar from '../components/focus-aware-status-bar';
-import { AUTH_STACK, ROOT_STACK } from '@config/navigators';
+import { AUTH_STACK, ROOT_STACK } from '@/config/navigators';
 
 const backgroundColor = '#feefc3';
 

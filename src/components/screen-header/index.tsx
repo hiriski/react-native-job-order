@@ -1,5 +1,5 @@
-import useTheme from '@app/hooks/use-theme';
-import { grey } from '@app/lib/theme/colors';
+import useTheme from '@/hooks/use-theme';
+import { grey } from '@/lib/theme/colors';
 import { Typography } from 'components/ui';
 import React, { FC, ReactNode, useMemo, useState } from 'react';
 import {
@@ -12,18 +12,27 @@ import {
   TextStyle,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { createSpacing } from '@utils/theme';
+import { createSpacing } from '@/utils/theme';
 
 interface Props {
   children?: ReactNode;
   title?: string;
+  subtitle?: string;
   enableBackButton?: boolean;
   onBack?: () => void;
   containerStyle?: ViewStyle;
   textStyle?: TextStyle;
 }
 
-const ScreenHeader: FC<Props> = ({ children, title, enableBackButton, onBack, containerStyle, textStyle }: Props) => {
+const ScreenHeader: FC<Props> = ({
+  children,
+  title,
+  subtitle,
+  enableBackButton,
+  onBack,
+  containerStyle,
+  textStyle,
+}: Props) => {
   const { palette } = useTheme();
 
   const [rippleColor] = useMemo(() => (palette.mode === 'dark' ? grey[500] : grey[200]), [palette]);
@@ -48,9 +57,14 @@ const ScreenHeader: FC<Props> = ({ children, title, enableBackButton, onBack, co
       {!children ? (
         <View style={[styles.container, { paddingHorizontal: !enableBackButton ? createSpacing(4) : 0 }]}>
           {enableBackButton ? renderBackButton() : null}
-          <Typography style={StyleSheet.flatten([styles.textStyle, textStyle])} variant="h1">
-            {title}
-          </Typography>
+          <View>
+            {title && (
+              <Typography style={StyleSheet.flatten([styles.textStyle, textStyle])} variant="h1">
+                {title}
+              </Typography>
+            )}
+            {subtitle && <Typography>{subtitle}</Typography>}
+          </View>
         </View>
       ) : (
         children

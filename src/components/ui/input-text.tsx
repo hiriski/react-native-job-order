@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { StyleSheet, TextInput } from 'react-native';
-import { grey } from '@app/lib/theme/colors';
-import { createTheme } from '@config/theme';
+import { grey } from '@/lib/theme/colors';
+import { createTheme } from '@/config/theme';
 
 interface Props {
   value: string;

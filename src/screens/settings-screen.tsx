@@ -6,18 +6,18 @@ import FocusAwareStatusBar from 'components/focus-aware-status-bar';
 // import Text from 'components/ui/text';
 import { MainLayout } from 'components/layouts';
 import ScreenHeader from 'components/screen-header';
-import { AUTH_STACK, ROOT_STACK, USER_STACK } from '@config/navigators';
-import { IconButton, MenuItem, Text, MaterialIcon } from '@components/ui';
-import { grey } from '@app/lib/theme/colors';
-import useTheme from '@hooks/use-theme';
-import FloatingActionButton from '@components/ui/floating-action-button';
-import { createSpacing } from '@app/utils/theme';
+import { AUTH_STACK, ROOT_STACK, USER_STACK } from '@/config/navigators';
+import { IconButton, MenuItem, Text, MaterialIcon } from '@/components/ui';
+import { grey } from '@/lib/theme/colors';
+import useTheme from '@/hooks/use-theme';
+import FloatingActionButton from '@/components/ui/floating-action-button';
+import { createSpacing } from '@/utils/theme';
 import { useDispatch } from 'react-redux';
-import { revokeTokenRequest } from '@app/store/auth/actions';
-import { toggleDarkMode } from '@app/store/common/actions';
-import { useAppSelector } from '@app/store/hook';
-import ModalAbout from '@components/about/modal-about';
-import Ionicons from '@components/ui/icon-ionicons';
+import { revokeTokenRequest } from '@/store/auth/actions';
+import { toggleDarkMode } from '@/store/common/actions';
+import { useAppSelector } from '@/store/hook';
+import ModalAbout from '@/components/about/modal-about';
+import Ionicons from '@/components/ui/icon-ionicons';
 
 const backgroundColor = '#fbfbfb';
 
@@ -61,6 +61,10 @@ const SettingsScreen: FC = () => {
     setVisibleModalAbout(false);
   };
 
+  const handlePressLock = (): void => {
+    console.log('Lock pressed');
+  };
+
   return (
     <SafeAreaView style={[styles.root, { ...backgroundStyle }]}>
       <FocusAwareStatusBar
@@ -83,6 +87,11 @@ const SettingsScreen: FC = () => {
           renderStartIcon={<MaterialIcon name="people" size={22} />}
         />
         <MenuItem title="Log out" onPress={handleLogout} renderStartIcon={<MaterialIcon name="logout" size={22} />} />
+        <MenuItem
+          title="Lock"
+          onPress={handlePressLock}
+          renderStartIcon={<Ionicons name="lock-closed-outline" size={22} />}
+        />
         <MenuItem
           title="About"
           onPress={() => setVisibleModalAbout(true)}

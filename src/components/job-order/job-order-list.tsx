@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { FlatList, ListRenderItem, StyleSheet } from 'react-native';
-import { Jo } from '@app/interfaces/jo';
+import { Jo } from '@/interfaces/jo';
 import { JobOrderItem } from '.';
-import { createSpacing } from '@utils/theme';
+import { createSpacing } from '@/utils/theme';
 
 interface Props {
   items: Jo[];
